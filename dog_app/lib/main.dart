@@ -1,14 +1,7 @@
-import 'package:dog_app/core/constants/app_colors.dart';
-import 'package:dog_app/core/constants/app_insects.dart';
-import 'package:dog_app/core/constants/app_radius.dart';
-import 'package:dog_app/widgets/custom_icon.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:dog_app/core/constants/app_sizes.dart';
+import 'core/exports.dart';
 
 void main() {
   runApp(const MyApp());
-  
 }
 
 class MyApp extends StatelessWidget {
@@ -48,8 +41,9 @@ class _MyHomePageState extends State<MyHomePage> {
         // ),
         body: Center(
           child: CustomScrollView(
-            scrollBehavior: MaterialScrollBehavior(),
+            // scrollBehavior: MaterialScrollBehavior(),
             slivers: [
+              //app bar
               SliverAppBar(
                 actions: [CustomIcon(iconData: Icons.notifications_outlined)],
                 actionsPadding: AppInsets.allMd,
@@ -61,88 +55,59 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 flexibleSpace: FlexibleSpaceBar(collapseMode: CollapseMode.pin),
               ),
+              // home card
               SliverPadding(
                 padding: AppInsets.allMd,
                 sliver: SliverToBoxAdapter(child: HomeCard()),
               ),
+              //Services
+              SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: .spaceBetween,
+                      children: [Text('Services'), Text('See All')],
+                    ),
+                    Row(
+                      spacing: 8,
+                      children: [
+                        Expanded(
+                          child: ServicesCard(
+                            color: AppColors.lightBlue,
+                            text: 'Veternary',
+                            imageUrl: AppImages.dogSvg,
+                          ),
+                        ),
+                        Expanded(
+                          child: ServicesCard(
+                            color: AppColors.lightPink,
+                            text: 'Foods',
+                            imageUrl: AppImages.dogFoodSvg,
+                          ),
+                        ),
+                        Expanded(
+                          child: ServicesCard(
+                            color: AppColors.lightOrange,
+                            text: 'Medicine',
+                            imageUrl: AppImages.stethoscopeDoctorSvg,
+                          ),
+                        ),
+                        Expanded(
+                          child: ServicesCard(
+                            color: AppColors.lightGrey,
+                            text: 'Grooming',
+                            imageUrl: AppImages.dogGroomingSvg,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class HomeCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 160,
-      // margin: AppInsets.allSm,
-      child: Stack(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: AppColors.orange,
-              borderRadius: AppRadius.medium,
-            ),
-          ),
-          Row(
-            children: [
-              Flexible(
-                fit: .tight,
-                child: Padding(
-                  padding: AppInsets.allMd,
-                  child: Column(
-                    mainAxisAlignment: .spaceBetween,
-                    crossAxisAlignment: .start,
-                    children: [
-                      Text(
-                        'New Work Shop for Dogs',
-                        style: TextStyle(
-                          color: AppColors.white,
-                          fontSize: Theme.of(
-                            context,
-                          ).textTheme.headlineMedium?.fontSize,
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: .start,
-                        children: [
-                          FilledButton(
-                            onPressed: () {},
-                            style: FilledButton.styleFrom(
-                              backgroundColor: AppColors.white,
-                            ),
-                            child: Text(
-                              'Join',
-                              style: TextStyle(color: Colors.black),
-                            ),
-                          ),
-                          Text(
-                            ' +2.8k Members',
-                            style: TextStyle(color: AppColors.white),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Flexible(
-                fit: .tight,
-                child: Align(
-                  alignment: .center,
-                  child: Image(
-                    image: AssetImage('assets/images/home_card_dog.png'),
-                    fit: .cover,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
       ),
     );
   }

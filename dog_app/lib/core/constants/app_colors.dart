@@ -4,6 +4,11 @@ final class AppColors {
   AppColors._();
 
   static const white = Colors.white;
+  static const black = Colors.black;
   static const orange = Color(0xFFEE9A28);
   static const grey = Colors.grey;
+  static const lightBlue = Color(0xFFCEE2FF);
+  static const lightPink = Color(0xFFFBEEED);
+  static const lightOrange = Color(0xFFFDF5D2);
+  static const lightGrey = Color(0xFFEDF9E7);
 }
