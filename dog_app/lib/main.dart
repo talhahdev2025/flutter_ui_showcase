@@ -104,7 +104,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
-              
+              SliverToBoxAdapter(
+                child: Container(
+                  height: 250,
+                  child: ListView.separated(
+                    itemCount: 5,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) => ListCard(),
+                    separatorBuilder: (context, index) => SizedBox(width: 8),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

@@ -4,6 +4,8 @@ import 'app_spacing.dart';
 final class AppInsets {
   AppInsets._();
 
+static const EdgeInsets allXXs =
+      EdgeInsets.all(AppSpacing.xxs);
   static const EdgeInsets allXs =
       EdgeInsets.all(AppSpacing.xs);
 

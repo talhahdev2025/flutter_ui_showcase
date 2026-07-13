@@ -12,6 +12,7 @@ export 'package:dog_app/core/constants/app_images.dart';
 export 'package:dog_app/widgets/custom_icon.dart';
 export 'package:dog_app/widgets/home_card.dart';
 export 'package:dog_app/widgets/services_card.dart';
+export 'package:dog_app/widgets/ListCard.dart';
 
 
 //packages
