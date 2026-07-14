@@ -1,7 +1,8 @@
 import 'package:dog_app/core/exports.dart';
 
 class ListCard extends StatelessWidget {
-  ListCard({this.color = AppColors.lightBlue});
+  ListCard({this.color = AppColors.lightBlue, this.rating = 0});
+  num rating;
   Color color;
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,16 @@ class ListCard extends StatelessWidget {
               radius: 60,
             ),
           ),
-          Text('Rating'),
+          Row(
+            mainAxisAlignment: .center,
+            children: <Widget>[
+              for (int i = 1; i <= 5; i++)
+                if (i <= rating)
+                  Icon(Icons.star_rounded, color: Colors.amber)
+                else
+                  Icon(Icons.star_border_rounded),
+            ],
+          ),
           Container(
             width: double.infinity,
             padding: AppInsets.allSm,

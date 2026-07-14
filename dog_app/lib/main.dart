@@ -105,12 +105,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               SliverToBoxAdapter(
-                child: Container(
+                child: SizedBox(
                   height: 250,
                   child: ListView.separated(
                     itemCount: 5,
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => ListCard(),
+                    // TODO:Add rating from actual data
+                    itemBuilder: (context, index) => ListCard(rating: 3),
                     separatorBuilder: (context, index) => SizedBox(width: 8),
                   ),
                 ),
