@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'core/exports.dart';
 
 void main() {
@@ -26,6 +28,26 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late ScrollController scrollController;
+
+  void listner() {
+    print('scrolling');
+  }
+
+  @override
+  void initState() {
+    scrollController = ScrollController();
+    scrollController.addListener(() => setState(() {}));
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -106,13 +128,33 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               SliverToBoxAdapter(
                 child: SizedBox(
-                  height: 250,
-                  child: ListView.separated(
-                    itemCount: 5,
+                  height: 270,
+                  child: ListView.builder(
+                    controller: scrollController,
+                    itemCount: 10,
                     scrollDirection: Axis.horizontal,
                     // TODO:Add rating from actual data
-                    itemBuilder: (context, index) => ListCard(rating: 3),
-                    separatorBuilder: (context, index) => SizedBox(width: 8),
+                    itemBuilder: (context, index) {
+                      double screenWidht = MediaQuery.of(context).size.width;
+                      double center =
+                          scrollController.offset +
+                          (scrollController.position.viewportDimension / 2);
+                      double itemCenter = index * 200 + (100);
+                      double distance = (itemCenter - center).abs();
+                      double scale =
+                          1 -
+                          distance /
+                              scrollController.position.viewportDimension;
+
+                      return Transform.scale(
+                        scale: scale.clamp(0.75, 1),
+                        child: ListCard(rating: 3),
+                      );
+                    },
+                    // separatorBuilder: (context, index) => SizedBox(width: 8),
+                    // print(
+                    //   'Center $center \n item Center $itemCenter \n Distance $distance \n Scale $scale',
+                    // );
                   ),
                 ),
               ),
