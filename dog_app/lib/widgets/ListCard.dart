@@ -1,11 +1,27 @@
 import 'package:dog_app/core/exports.dart';
 
 class ListCard extends StatelessWidget {
-  ListCard({this.color = AppColors.lightBlue, this.rating = 0});
   num rating;
   Color color;
+  String category;
+  String name;
+  String image;
+  ListCard({
+    this.color = AppColors.lightBlue,
+    this.rating = 0,
+    required this.category,
+    required this.image,
+    required this.name,
+  });
   @override
   Widget build(BuildContext context) {
+    color=switch (rating) {
+      <=1 => AppColors.lightGrey,
+      <=2 => AppColors.lightBlue,
+      <=3 => AppColors.lightOrange,
+      <=4 => AppColors.lightPink,
+      _=> AppColors.lightPurple
+    };
     return Container(
       padding: AppInsets.allXXs,
       width: 200,
@@ -19,7 +35,7 @@ class ListCard extends StatelessWidget {
           Padding(
             padding: AppInsets.allSm,
             child: CircleAvatar(
-              backgroundImage: AssetImage(AppImages.homeCardDog),
+              backgroundImage: NetworkImage(image),
               backgroundColor: color,
               radius: 60,
             ),
@@ -47,15 +63,21 @@ class ListCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: .spaceBetween,
               children: [
-                Column(
-                  crossAxisAlignment: .start,
-                  children: [
-                    Text(
-                      'Dr. Helen',
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    Text('Dentist'),
-                  ],
+                Flexible(
+                  fit: .tight,
+                  child: Column(
+                    crossAxisAlignment: .start,
+                    children: [
+                      Text(
+                        name,
+                        overflow: .fade,
+                        style: Theme.of(
+                          context,
+                        ).textTheme.headlineSmall?.copyWith(overflow: .fade),
+                      ),
+                      Text(category),
+                    ],
+                  ),
                 ),
                 CustomIcon(
                   iconData: Icons.mail_outline_rounded,

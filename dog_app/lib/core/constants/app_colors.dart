@@ -11,6 +11,7 @@ final class AppColors {
   static const lightPink = Color(0xFFFBEEED);
   static const lightOrange = Color(0xFFFDF5D2);
   static const lightGrey = Color(0xFFEDF9E7);
+  static const lightPurple = Color(0xFFF3EBF7);
   static const extralightGrey =Color.fromARGB(255, 73, 72, 72);
   static const extraLightPink = Color.fromARGB(255, 247, 241, 238);
 }

@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:dog_app/data/dummy_doctors.dart';
+
 import 'core/exports.dart';
 
 void main() {
@@ -14,7 +16,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Bruno the Dog',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: AppColors.white)),
+      theme: ThemeData(
+        colorScheme: .fromSeed(
+          seedColor: const Color.fromARGB(255, 228, 225, 225),
+        ),
+      ),
       home: const MyHomePage(title: 'Bruno the Dog'),
     );
   }
@@ -131,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 270,
                   child: ListView.builder(
                     controller: scrollController,
-                    itemCount: 10,
+                    itemCount: 12,
                     scrollDirection: Axis.horizontal,
                     // TODO:Add rating from actual data
                     itemBuilder: (context, index) {
@@ -145,10 +151,15 @@ class _MyHomePageState extends State<MyHomePage> {
                           1 -
                           distance /
                               scrollController.position.viewportDimension;
-
+                      // double rotate = distance * 0.002;
                       return Transform.scale(
                         scale: scale.clamp(0.75, 1),
-                        child: ListCard(rating: 3),
+                        child: ListCard(
+                          rating: doctors[index].rating,
+                          name: doctors[index].name,
+                          category: doctors[index].category,
+                          image: doctors[index].image,
+                        ),
                       );
                     },
                     // separatorBuilder: (context, index) => SizedBox(width: 8),
