@@ -24,28 +24,35 @@ class ListCard extends StatelessWidget {
     };
     return Container(
       padding: AppInsets.allXXs,
-      width: 200,
+      width: 210,
       decoration: BoxDecoration(color: color, borderRadius: AppRadius.large),
       child: Column(
         mainAxisAlignment: .spaceBetween,
         children: [
-          Padding(
-            padding: AppInsets.allSm,
-            child: CircleAvatar(
-              backgroundImage: NetworkImage(image),
-              backgroundColor: color,
-              radius: 60,
+          Expanded(
+            child: Column(
+              mainAxisAlignment: .spaceEvenly,
+              children: [
+                Padding(
+                  padding: AppInsets.allSm,
+                  child: CircleAvatar(
+                    backgroundImage: NetworkImage(image),
+                    backgroundColor: color,
+                    radius: 60,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: .center,
+                  children: <Widget>[
+                    for (int i = 1; i <= 5; i++)
+                      if (i <= rating)
+                        Icon(Icons.star_rounded, color: Colors.amber)
+                      else
+                        Icon(Icons.star_border_rounded),
+                  ],
+                ),
+              ],
             ),
-          ),
-          Row(
-            mainAxisAlignment: .center,
-            children: <Widget>[
-              for (int i = 1; i <= 5; i++)
-                if (i <= rating)
-                  Icon(Icons.star_rounded, color: Colors.amber)
-                else
-                  Icon(Icons.star_border_rounded),
-            ],
           ),
           Container(
             width: double.infinity,
@@ -67,7 +74,8 @@ class ListCard extends StatelessWidget {
                     children: [
                       Text(
                         name,
-                        overflow: .fade,
+                        maxLines: 1,
+                        overflow: .ellipsis,
                         style: Theme.of(context).textTheme.headlineSmall
                             ?.copyWith(overflow: .fade, height: 1),
                       ),
