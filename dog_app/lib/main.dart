@@ -1,7 +1,5 @@
 import 'dart:math';
-
 import 'package:dog_app/data/dummy_doctors.dart';
-
 import 'core/exports.dart';
 
 void main() {
@@ -151,6 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           1 -
                           distance /
                               scrollController.position.viewportDimension;
+
                       // double rotate = distance * 0.002;
                       return Transform.scale(
                         scale: scale.clamp(0.75, 1),
@@ -171,6 +170,33 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          elevation: 0,
+          fixedColor: Colors.amber,
+          selectedIconTheme: IconThemeData().copyWith(color: AppColors.orange),
+          unselectedIconTheme: IconThemeData().copyWith(
+            color: AppColors.extralightGrey,
+          ),
+
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_rounded),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.mobile_friendly_rounded),
+              label: 'Explore',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings_rounded),
+              label: 'Setting',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_rounded),
+              label: 'Profile',
+            ),
+          ],
         ),
       ),
     );

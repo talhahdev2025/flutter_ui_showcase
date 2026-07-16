@@ -15,20 +15,17 @@ class ListCard extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    color=switch (rating) {
-      <=1 => AppColors.lightGrey,
-      <=2 => AppColors.lightBlue,
-      <=3 => AppColors.lightOrange,
-      <=4 => AppColors.lightPink,
-      _=> AppColors.lightPurple
+    color = switch (rating) {
+      <= 1 => AppColors.lightGrey,
+      <= 2 => AppColors.lightBlue,
+      <= 3 => AppColors.lightOrange,
+      <= 4 => AppColors.lightPink,
+      _ => AppColors.lightOrange,
     };
     return Container(
       padding: AppInsets.allXXs,
       width: 200,
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.5),
-        borderRadius: AppRadius.large,
-      ),
+      decoration: BoxDecoration(color: color, borderRadius: AppRadius.large),
       child: Column(
         mainAxisAlignment: .spaceBetween,
         children: [

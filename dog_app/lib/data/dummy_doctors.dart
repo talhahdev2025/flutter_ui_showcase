@@ -5,44 +5,49 @@ final List<Doctor> doctors = [
     name: 'Dr. Emma Wilson',
     category: 'Dentist',
     rating: 5,
-    image: 'https://randomuser.me/api/portraits/women/1.jpg',
+    image: 'https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg',
   ),
   Doctor(
     name: 'Dr. Liam Carter',
     category: 'Cardiologist',
     rating: 2,
-    image: 'https://randomuser.me/api/portraits/men/2.jpg',
+    image: 'https://images.pexels.com/photos/5726703/pexels-photo-5726703.jpeg'
   ),
   Doctor(
     name: 'Dr. Olivia Brown',
     category: 'Dermatologist',
     rating: 5,
-    image: 'https://randomuser.me/api/portraits/women/3.jpg',
+    image: 'https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg',
   ),
   Doctor(
     name: 'Dr. Noah Smith',
     category: 'Neurologist',
     rating: 4,
-    image: 'https://randomuser.me/api/portraits/men/4.jpg',
+    image: 'https://images.pexels.com/photos/5998468/pexels-photo-5998468.jpeg',
   ),
   Doctor(
     name: 'Dr. Sophia Davis',
     category: 'Pediatrician',
     rating: 2,
-    image: 'https://randomuser.me/api/portraits/women/5.jpg',
+    image: 'https://images.pexels.com/photos/7580259/pexels-photo-7580259.jpeg',
   ),
   Doctor(
     name: 'Dr. James Miller',
     category: 'Orthopedic',
     rating: 3,
-    image: 'https://randomuser.me/api/portraits/men/6.jpg',
+    image: 'https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg',
   ),
   Doctor(
     name: 'Dr. Isabella Moore',
     category: 'Gynecologist',
     rating: 5,
-    image: 'https://images.pexels.com/photos/6129507/pexels-photo-6129508.jpeg',
+    image: 'https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg',
   ),
+
+  /*
+   
+ 
+  */
   Doctor(
     name: 'Dr. Benjamin Taylor',
     category: 'Psychiatrist',
