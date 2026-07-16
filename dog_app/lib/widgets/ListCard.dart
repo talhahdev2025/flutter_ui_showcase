@@ -49,7 +49,7 @@ class ListCard extends StatelessWidget {
           ),
           Container(
             width: double.infinity,
-            padding: AppInsets.allSm,
+            padding: AppInsets.allMd,
             decoration: BoxDecoration(
               color: AppColors.white,
               borderRadius: BorderRadius.only(
@@ -68,9 +68,8 @@ class ListCard extends StatelessWidget {
                       Text(
                         name,
                         overflow: .fade,
-                        style: Theme.of(
-                          context,
-                        ).textTheme.headlineSmall?.copyWith(overflow: .fade),
+                        style: Theme.of(context).textTheme.headlineSmall
+                            ?.copyWith(overflow: .fade, height: 1),
                       ),
                       Text(category),
                     ],

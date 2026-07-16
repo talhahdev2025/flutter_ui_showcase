@@ -54,6 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double appBarHeight = MediaQuery.of(context).size.height * 0.1;
     return SafeArea(
       child: Scaffold(
         // appBar: AppBar(
@@ -65,111 +66,142 @@ class _MyHomePageState extends State<MyHomePage> {
         //   ),
         //   actions: [CustomIcon(iconData: Icons.notifications_outlined)],
         // ),
-        body: Center(
-          child: CustomScrollView(
-            // scrollBehavior: MaterialScrollBehavior(),
-            slivers: [
-              //app bar
-              SliverAppBar(
-                actions: [CustomIcon(iconData: Icons.notifications_outlined)],
-                actionsPadding: AppInsets.allMd,
-                toolbarHeight: 72,
-                expandedHeight: 80,
-                title: Text(
-                  widget.title,
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
-                flexibleSpace: FlexibleSpaceBar(collapseMode: CollapseMode.pin),
-              ),
-              // home card
-              SliverPadding(
-                padding: AppInsets.allMd,
-                sliver: SliverToBoxAdapter(child: HomeCard()),
-              ),
-              //Services
-              SliverToBoxAdapter(
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: .spaceBetween,
-                      children: [Text('Services'), Text('See All')],
+        body: LayoutBuilder(
+          builder: (context, constraints) {
+            double screenWidth = MediaQuery.of(context).size.width;
+            double screenHeight = MediaQuery.of(context).size.height;
+            return Center(
+              child: CustomScrollView(
+                // scrollBehavior: MaterialScrollBehavior(),
+                slivers: [
+                  //app bar
+                  SliverAppBar(
+                    actions: [
+                      CustomIcon(iconData: Icons.notifications_outlined),
+                    ],
+                    actionsPadding: AppInsets.allSm,
+                    toolbarHeight: appBarHeight,
+                    title: Text(
+                      widget.title,
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
-                    Row(
-                      spacing: 8,
-                      children: [
-                        Expanded(
-                          child: ServicesCard(
-                            color: AppColors.lightBlue,
-                            text: 'Veternary',
-                            imageUrl: AppImages.dogSvg,
-                          ),
-                        ),
-                        Expanded(
-                          child: ServicesCard(
-                            color: AppColors.lightPink,
-                            text: 'Foods',
-                            imageUrl: AppImages.dogFoodSvg,
-                          ),
-                        ),
-                        Expanded(
-                          child: ServicesCard(
-                            color: AppColors.lightOrange,
-                            text: 'Medicine',
-                            imageUrl: AppImages.stethoscopeDoctorSvg,
-                          ),
-                        ),
-                        Expanded(
-                          child: ServicesCard(
-                            color: AppColors.lightGrey,
-                            text: 'Grooming',
-                            imageUrl: AppImages.dogGroomingSvg,
-                          ),
-                        ),
-                      ],
+                    flexibleSpace: FlexibleSpaceBar(
+                      collapseMode: CollapseMode.pin,
                     ),
-                  ],
-                ),
-              ),
-              SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 270,
-                  child: ListView.builder(
-                    controller: scrollController,
-                    itemCount: 12,
-                    scrollDirection: Axis.horizontal,
-                    // TODO:Add rating from actual data
-                    itemBuilder: (context, index) {
-                      double screenWidht = MediaQuery.of(context).size.width;
-                      double center =
-                          scrollController.offset +
-                          (scrollController.position.viewportDimension / 2);
-                      double itemCenter = index * 200 + (100);
-                      double distance = (itemCenter - center).abs();
-                      double scale =
-                          1 -
-                          distance /
-                              scrollController.position.viewportDimension;
-
-                      // double rotate = distance * 0.002;
-                      return Transform.scale(
-                        scale: scale.clamp(0.75, 1),
-                        child: ListCard(
-                          rating: doctors[index].rating,
-                          name: doctors[index].name,
-                          category: doctors[index].category,
-                          image: doctors[index].image,
-                        ),
-                      );
-                    },
-                    // separatorBuilder: (context, index) => SizedBox(width: 8),
-                    // print(
-                    //   'Center $center \n item Center $itemCenter \n Distance $distance \n Scale $scale',
-                    // );
                   ),
-                ),
+                  // home card
+                  SliverPadding(
+                    padding: AppInsets.allMd,
+                    sliver: SliverToBoxAdapter(child: HomeCard()),
+                  ),
+                  //Services
+                  SliverToBoxAdapter(
+                    child: Container(
+                      // color: Colors.green,
+                      height: screenHeight * 0.2,
+                      child: Column(
+                        mainAxisAlignment: .spaceAround,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 4,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: .spaceBetween,
+                              children: [
+                                Text(
+                                  'Services',
+                                  style: Theme.of(
+                                    context,
+                                  ).textTheme.headlineSmall,
+                                ),
+                                Text('See All'),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            child: Row(
+                              mainAxisAlignment: .spaceBetween,
+                              children: [
+                                ServicesCard(
+                                  color: AppColors.lightBlue,
+                                  text: 'Veternary',
+                                  imageUrl: AppImages.dogSvg,
+                                ),
+                                ServicesCard(
+                                  color: AppColors.lightPink,
+                                  text: 'Food',
+                                  imageUrl: AppImages.dogFoodSvg,
+                                ),
+                                ServicesCard(
+                                  color: AppColors.lightOrange,
+                                  text: 'Medicine',
+                                  imageUrl: AppImages.stethoscopeDoctorSvg,
+                                ),
+                                ServicesCard(
+                                  color: AppColors.lightGrey,
+                                  text: 'Grooming',
+                                  imageUrl: AppImages.dogGroomingSvg,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: Container(
+                      // color: Colors.amber,
+                      padding: EdgeInsets.only(top: 8),
+                      height: screenHeight * 0.39,
+                      child: ListView.builder(
+                        controller: scrollController,
+                        itemCount: 12,
+                        scrollDirection: Axis.horizontal,
+                        // TODO:Add rating from actual data
+                        itemBuilder: (context, index) {
+                          double screenWidht = MediaQuery.of(
+                            context,
+                          ).size.width;
+                          double center =
+                              scrollController.offset +
+                              (scrollController.position.viewportDimension / 2);
+                          double itemCenter = index * 200 + (100);
+                          double distance = (itemCenter - center).abs();
+                          double scale =
+                              1 -
+                              distance /
+                                  scrollController.position.viewportDimension;
+
+                          // double rotate = distance * 0.002;
+                          return Transform.scale(
+                            scale: scale.clamp(0.75, 1),
+                            child: ListCard(
+                              rating: doctors[index].rating,
+                              name: doctors[index].name,
+                              category: doctors[index].category,
+                              image: doctors[index].image,
+                            ),
+                          );
+                        },
+                        // separatorBuilder: (context, index) => SizedBox(width: 8),
+                        // print(
+                        //   'Center $center \n item Center $itemCenter \n Distance $distance \n Scale $scale',
+                        // );
+                      ),
+                    ),
+                  ),
+                  // SliverFillRemaining(
+                  //   hasScrollBody: false,
+                  //   child: SizedBox(height: screenHeight * 0.1),
+                  // ),
+                ],
               ),
-            ],
-          ),
+            );
+          },
         ),
         bottomNavigationBar: BottomNavigationBar(
           elevation: 0,

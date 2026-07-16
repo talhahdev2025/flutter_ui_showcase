@@ -16,6 +16,7 @@ class ServicesCard extends StatelessWidget {
       children: [
         Container(
           padding: AppInsets.allMd,
+          margin: EdgeInsets.only(bottom: 4),
           decoration: BoxDecoration(
             color: color,
             borderRadius: AppRadius.large,

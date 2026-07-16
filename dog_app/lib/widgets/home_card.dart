@@ -3,74 +3,98 @@ import 'package:dog_app/core/exports.dart';
 class HomeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 160,
-      // margin: AppInsets.allSm,
-      child: Stack(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: AppColors.orange,
-              borderRadius: AppRadius.extraLarge,
-            ),
-          ),
-          Row(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        double cardHeight = MediaQuery.of(context).size.height * 0.25;
+        double cardWidth = MediaQuery.of(context).size.width;
+        return Container(
+          width: double.infinity,
+          height: cardHeight,
+          // margin: AppInsets.allSm,
+          child: Stack(
             children: [
-              Flexible(
-                fit: .tight,
-                child: Padding(
-                  padding: AppInsets.allMd,
-                  child: Column(
-                    mainAxisAlignment: .spaceBetween,
-                    crossAxisAlignment: .start,
-                    children: [
-                      Text(
-                        'New Work Shop for Dogs',
-                        style: TextStyle(
-                          color: AppColors.white,
-                          fontSize: Theme.of(
-                            context,
-                          ).textTheme.headlineMedium?.fontSize,
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: .start,
+              Container(
+                decoration: BoxDecoration(
+                  color: AppColors.orange,
+                  borderRadius: AppRadius.extraLarge,
+                ),
+              ),
+              Row(
+                children: [
+                  Flexible(
+                    flex: 3,
+                    fit: .tight,
+                    child: Padding(
+                      padding: AppInsets.allMd,
+                      child: Column(
+                        mainAxisAlignment: .spaceAround,
+                        crossAxisAlignment: .start,
                         children: [
-                          FilledButton(
-                            onPressed: () {},
-                            style: FilledButton.styleFrom(
-                              backgroundColor: AppColors.white,
-                            ),
-                            child: Text(
-                              'Join',
-                              style: TextStyle(color: Colors.black),
+                          Text(
+                            'New Work Shop for Dogs',
+                            style: TextStyle(
+                              height: 1,
+                              fontWeight: .w500,
+                              color: AppColors.white,
+                              fontSize: (cardWidth < 400) ? 26 : 30,
                             ),
                           ),
-                          Text(
-                            ' +2.8k Members',
-                            style: TextStyle(color: AppColors.white),
+                          Flex(
+                            direction: (cardWidth < 400)
+                                ? Axis.vertical
+                                : Axis.horizontal,
+                            crossAxisAlignment: (cardWidth < 400)
+                                ? CrossAxisAlignment.start
+                                : CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.symmetric(horizontal: 4),
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 4,
+                                  horizontal: 16,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: AppColors.white,
+                                  borderRadius: AppRadius.large,
+                                ),
+                                child: Text(
+                                  'Join',
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                              ),
+                              Text(
+                                ' +2k Members',
+                                style: TextStyle(color: AppColors.white),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-              Flexible(
-                fit: .tight,
-                child: Align(
-                  alignment: .center,
-                  child: Image(
-                    image: AssetImage(AppImages.homeCardDog),
-                    fit: .cover,
+                  Flexible(
+                    fit: .tight,
+                    flex: 2,
+                    child: Align(
+                      alignment: .center,
+                      child: Container(
+                        clipBehavior: .hardEdge,
+                        decoration: BoxDecoration(
+                          borderRadius: AppRadius.extraLarge,
+                          image: DecorationImage(
+                            image: AssetImage(AppImages.homeCardDog),
+                            fit: .cover,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
             ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

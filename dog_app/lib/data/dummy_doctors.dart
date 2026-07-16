@@ -2,78 +2,73 @@ import 'package:dog_app/core/exports.dart';
 
 final List<Doctor> doctors = [
   Doctor(
-    name: 'Dr. Emma Wilson',
+    name: 'Dr. Emma',
     category: 'Dentist',
     rating: 5,
     image: 'https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg',
   ),
   Doctor(
-    name: 'Dr. Liam Carter',
+    name: 'Dr. Liam',
     category: 'Cardiologist',
     rating: 2,
-    image: 'https://images.pexels.com/photos/5726703/pexels-photo-5726703.jpeg'
+    image: 'https://images.pexels.com/photos/5726703/pexels-photo-5726703.jpeg',
   ),
   Doctor(
-    name: 'Dr. Olivia Brown',
+    name: 'Dr. Olivia',
     category: 'Dermatologist',
     rating: 5,
     image: 'https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg',
   ),
   Doctor(
-    name: 'Dr. Noah Smith',
+    name: 'Dr. Noah',
     category: 'Neurologist',
     rating: 4,
     image: 'https://images.pexels.com/photos/5998468/pexels-photo-5998468.jpeg',
   ),
   Doctor(
-    name: 'Dr. Sophia Davis',
+    name: 'Dr. Sophia',
     category: 'Pediatrician',
     rating: 2,
     image: 'https://images.pexels.com/photos/7580259/pexels-photo-7580259.jpeg',
   ),
   Doctor(
-    name: 'Dr. James Miller',
+    name: 'Dr. James',
     category: 'Orthopedic',
     rating: 3,
     image: 'https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg',
   ),
   Doctor(
-    name: 'Dr. Isabella Moore',
+    name: 'Dr. Isabella',
     category: 'Gynecologist',
     rating: 5,
     image: 'https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg',
   ),
-
-  /*
-   
- 
-  */
   Doctor(
-    name: 'Dr. Benjamin Taylor',
+    name: 'Dr. Benjamin',
     category: 'Psychiatrist',
     rating: 4,
     image: 'https://images.pexels.com/photos/6129507/pexels-photo-6129507.jpeg',
   ),
   Doctor(
-    name: 'Dr. Mia Anderson',
+    name: 'Dr. Mia',
     category: 'Ophthalmologist',
     rating: 5,
     image: 'https://images.pexels.com/photos/5327656/pexels-photo-5327656.jpeg',
   ),
   Doctor(
-    name: 'Dr. Lucas Thomas',
+    name: 'Dr. Lucas',
     category: 'ENT Specialist',
     rating: 4,
     image: 'https://images.pexels.com/photos/5327921/pexels-photo-5327921.jpeg',
   ),
   Doctor(
-    name: 'Dr. Charlotte White',
+    name: 'Dr. Charlotte',
     category: 'General Physician',
     rating: 2,
     image: 'https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg',
   ),
   Doctor(
-    name: 'Dr. Henry Martin',
+    name: 'Dr. Henry',
     category: 'Surgeon',
     rating: 4,
     image: 'https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg',
