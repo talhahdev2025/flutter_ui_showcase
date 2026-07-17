@@ -99,12 +99,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Column(
                         mainAxisAlignment: .spaceAround,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 4,
-                            ),
-                            child: SectionHeader(title: 'Services'),
+                          SectionHeader(
+                            title: 'Services',
+                            actionText: 'See All',
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 16),
@@ -138,46 +135,54 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ),
+                  //doctors listView
                   SliverToBoxAdapter(
-                    child: Container(
-                      // color: Colors.amber,
-                      padding: EdgeInsets.only(top: 8),
-                      height: screenHeight * 0.39,
-                      child: ListView.builder(
-                        controller: scrollController,
-                        itemCount: 12,
-                        scrollDirection: Axis.horizontal,
-                        // TODO:Add rating from actual data
-                        itemBuilder: (context, index) {
-                          double screenWidht = MediaQuery.of(
-                            context,
-                          ).size.width;
-                          double center =
-                              scrollController.offset +
-                              (scrollController.position.viewportDimension / 2);
-                          double itemCenter = index * 200 + (100);
-                          double distance = (itemCenter - center).abs();
-                          double scale =
-                              1 -
-                              distance /
-                                  scrollController.position.viewportDimension;
+                    child: Column(
+                      children: [
+                        SectionHeader(title: 'Featured Doctors'),
+                        Container(
+                          // color: Colors.amber,
+                          padding: EdgeInsets.only(top: 8),
+                          height: screenHeight * 0.39,
+                          child: ListView.builder(
+                            controller: scrollController,
+                            itemCount: 12,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, index) {
+                              double screenWidht = MediaQuery.of(
+                                context,
+                              ).size.width;
+                              double center =
+                                  scrollController.offset +
+                                  (scrollController.position.viewportDimension /
+                                      2);
+                              double itemCenter = index * 200 + (100);
+                              double distance = (itemCenter - center).abs();
+                              double scale =
+                                  1 -
+                                  distance /
+                                      scrollController
+                                          .position
+                                          .viewportDimension;
 
-                          // double rotate = distance * 0.002;
-                          return Transform.scale(
-                            scale: scale.clamp(0.75, 1),
-                            child: ListCard(
-                              rating: doctors[index].rating,
-                              name: doctors[index].name,
-                              category: doctors[index].category,
-                              image: doctors[index].image,
-                            ),
-                          );
-                        },
-                        // separatorBuilder: (context, index) => SizedBox(width: 8),
-                        // print(
-                        //   'Center $center \n item Center $itemCenter \n Distance $distance \n Scale $scale',
-                        // );
-                      ),
+                              // double rotate = distance * 0.002;
+                              return Transform.scale(
+                                scale: scale.clamp(0.75, 1),
+                                child: ListCard(
+                                  rating: doctors[index].rating,
+                                  name: doctors[index].name,
+                                  category: doctors[index].category,
+                                  image: doctors[index].image,
+                                ),
+                              );
+                            },
+                            // separatorBuilder: (context, index) => SizedBox(width: 8),
+                            // print(
+                            //   'Center $center \n item Center $itemCenter \n Distance $distance \n Scale $scale',
+                            // );
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   // SliverFillRemaining(

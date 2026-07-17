@@ -1,3 +1,4 @@
+import 'package:dog_app/core/constants/app_spacing.dart';
 import 'package:dog_app/core/exports.dart';
 
 class ListCard extends StatelessWidget {
@@ -35,10 +36,38 @@ class ListCard extends StatelessWidget {
               children: [
                 Padding(
                   padding: AppInsets.allSm,
-                  child: CircleAvatar(
-                    backgroundImage: NetworkImage(image),
-                    backgroundColor: color,
-                    radius: 60,
+                  child: Stack(
+                    children: [
+                      Container(
+                        padding: AppInsets.allXXs,
+                        decoration: BoxDecoration(
+                          color: AppColors.white,
+                          shape: BoxShape.circle,
+                        ),
+                        child: CircleAvatar(
+                          backgroundImage: NetworkImage(image),
+                          backgroundColor: color,
+                          radius: 60,
+                        ),
+                      ),
+                      if (rating >= 4)
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: Container(
+                            padding: AppInsets.allXs,
+                            decoration: BoxDecoration(
+                              color: AppColors.primary,
+                              borderRadius: AppRadius.large,
+                            ),
+                            child: Text(
+                              'Top Rated',
+                              style: Theme.of(context).textTheme.labelLarge
+                                  ?.copyWith(color: AppColors.white),
+                            ),
+                          ),
+                        ),
+                    ],
                   ),
                 ),
                 Row(
