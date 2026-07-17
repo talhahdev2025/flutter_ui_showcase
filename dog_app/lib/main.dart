@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:dog_app/data/dummy_doctors.dart';
+import 'package:dog_app/widgets/section_header.dart';
 import 'core/exports.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Bruno the Dog',
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.light,
+      theme: AppTheme.lightTheme,
       home: const MyHomePage(title: 'Bruno the Dog'),
     );
   }
@@ -103,18 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               horizontal: 16,
                               vertical: 4,
                             ),
-                            child: Row(
-                              mainAxisAlignment: .spaceBetween,
-                              children: [
-                                Text(
-                                  'Services',
-                                  style: Theme.of(
-                                    context,
-                                  ).textTheme.headlineSmall,
-                                ),
-                                Text('See All'),
-                              ],
-                            ),
+                            child: SectionHeader(title: 'Services'),
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 16),
