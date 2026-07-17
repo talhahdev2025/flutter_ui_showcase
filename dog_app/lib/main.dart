@@ -73,10 +73,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 slivers: [
                   //app bar
                   SliverAppBar(
-                    actions: [
-                      CustomIcon(iconData: Icons.notifications_outlined),
-                    ],
-                    actionsPadding: AppInsets.allSm,
+                    actions: [Icon(Icons.notifications_outlined)],
+                    actionsPadding: AppInsets.allMd,
                     toolbarHeight: appBarHeight,
                     title: Text(
                       widget.title,
@@ -95,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   SliverToBoxAdapter(
                     child: Container(
                       // color: Colors.green,
-                      height: screenHeight * 0.2,
+                      height: screenHeight * 0.21,
                       child: Column(
                         mainAxisAlignment: .spaceAround,
                         children: [
@@ -143,7 +141,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                           // color: Colors.amber,
                           padding: EdgeInsets.only(top: 8),
-                          height: screenHeight * 0.39,
+                          height: (screenHeight < 700)
+                              ? screenHeight * 0.42
+                              : screenHeight * 0.38,
                           child: ListView.builder(
                             controller: scrollController,
                             itemCount: 12,
@@ -176,19 +176,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                               );
                             },
-                            // separatorBuilder: (context, index) => SizedBox(width: 8),
-                            // print(
-                            //   'Center $center \n item Center $itemCenter \n Distance $distance \n Scale $scale',
-                            // );
                           ),
                         ),
                       ],
                     ),
                   ),
-                  // SliverFillRemaining(
-                  //   hasScrollBody: false,
-                  //   child: SizedBox(height: screenHeight * 0.1),
-                  // ),
                 ],
               ),
             );
