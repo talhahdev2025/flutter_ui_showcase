@@ -14,4 +14,18 @@ final class AppColors {
   static const lightPurple = Color(0xFFF3EBF7);
   static const extralightGrey =Color.fromARGB(255, 73, 72, 72);
   static const extraLightPink = Color.fromARGB(255, 247, 241, 238);
+
+
+  static const primary = Color(0xFFFF9800);
+  static const secondary = Color(0xFFB3E5FC); 
+  static const teritory = Color(0xFFC8E6C9); 
+  static const neutral = Color(0xFFF7F7F7); 
+
+
+  static const background = Color(0xFFFFFFFF);
+  static const surface = Color(0xFFF7F7F7);
+  static const medical = Color(0xFFD9F0FF);
+  static const food = Color(0xFFDDF6E8);
+  static const grooming = Color(0xFFFFE2EC);
+  static const boarding = Color(0xFFFFF3D4);
 }

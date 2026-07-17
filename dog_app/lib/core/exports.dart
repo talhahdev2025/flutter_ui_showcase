@@ -7,6 +7,9 @@ export 'package:dog_app/core/constants/app_colors.dart';
 export 'package:dog_app/core/constants/app_insects.dart';
 export 'package:dog_app/core/constants/app_radius.dart';
 export 'package:dog_app/core/constants/app_images.dart';
+export 'package:dog_app/core/theme/app_shadows.dart';
+export 'package:dog_app/core/theme/app_theme.dart';
+export 'package:dog_app/core/theme/app_text_styles.dart';
 
 //shared
 export 'package:dog_app/widgets/custom_icon.dart';

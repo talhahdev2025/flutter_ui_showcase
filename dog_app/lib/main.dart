@@ -14,11 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Bruno the Dog',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: .fromSeed(
-          seedColor: const Color.fromARGB(255, 228, 225, 225),
-        ),
-      ),
+      theme: AppTheme.light,
       home: const MyHomePage(title: 'Bruno the Dog'),
     );
   }
@@ -126,22 +122,22 @@ class _MyHomePageState extends State<MyHomePage> {
                               mainAxisAlignment: .spaceBetween,
                               children: [
                                 ServicesCard(
-                                  color: AppColors.lightBlue,
+                                  color: AppColors.boarding,
                                   text: 'Veternary',
                                   imageUrl: AppImages.dogSvg,
                                 ),
                                 ServicesCard(
-                                  color: AppColors.lightPink,
+                                  color: AppColors.food,
                                   text: 'Food',
                                   imageUrl: AppImages.dogFoodSvg,
                                 ),
                                 ServicesCard(
-                                  color: AppColors.lightOrange,
+                                  color: AppColors.medical,
                                   text: 'Medicine',
                                   imageUrl: AppImages.stethoscopeDoctorSvg,
                                 ),
                                 ServicesCard(
-                                  color: AppColors.lightGrey,
+                                  color: AppColors.grooming,
                                   text: 'Grooming',
                                   imageUrl: AppImages.dogGroomingSvg,
                                 ),
