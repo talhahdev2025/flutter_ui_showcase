@@ -18,6 +18,9 @@ final class AppColors {
 
   static const primary = Color(0xFFFF9800);
   static const secondary = Color(0xFFB3E5FC); 
+   static const onPrimarySelected=Color(0xFF8b5000);
+   static const onPrimary=Color(0xFF653900);
+     
   static const teritory = Color(0xFFC8E6C9); 
   static const neutral = Color(0xFFF7F7F7); 
 

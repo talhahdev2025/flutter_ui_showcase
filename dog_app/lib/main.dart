@@ -194,29 +194,26 @@ class _MyHomePageState extends State<MyHomePage> {
             );
           },
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          elevation: 0,
-          fixedColor: Colors.amber,
-          selectedIconTheme: IconThemeData().copyWith(color: AppColors.orange),
-          unselectedIconTheme: IconThemeData().copyWith(
-            color: AppColors.extralightGrey,
-          ),
-
-          items: [
-            BottomNavigationBarItem(
+        bottomNavigationBar: NavigationBar(
+          destinations: const [
+            NavigationDestination(
               icon: Icon(Icons.home_rounded),
+              selectedIcon: Icon(Icons.home),
               label: 'Home',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.mobile_friendly_rounded),
-              label: 'Explore',
+            NavigationDestination(
+              icon: Icon(Icons.pets_outlined),
+              selectedIcon: Icon(Icons.pets),
+              label: 'Services',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings_rounded),
-              label: 'Setting',
+            NavigationDestination(
+              icon: Icon(Icons.shopping_bag_rounded),
+              selectedIcon: Icon(Icons.shopping_bag),
+              label: 'Shop',
             ),
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Icons.person_rounded),
+              selectedIcon: Icon(Icons.person),
               label: 'Profile',
             ),
           ],

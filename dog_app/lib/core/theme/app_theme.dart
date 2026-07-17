@@ -33,33 +33,49 @@ class AppTheme {
     ),
 
     textTheme: const TextTheme(
-      headlineLarge: TextStyle(
-        fontSize: 32,
-        fontWeight: FontWeight.bold,
-      ),
+      headlineLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
 
-      titleLarge: TextStyle(
-        fontSize: 22,
-        fontWeight: FontWeight.w700,
-      ),
+      titleLarge: TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
 
-      titleMedium: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.w600,
-      ),
+      titleMedium: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
 
-      bodyLarge: TextStyle(
-        fontSize: 16,
-      ),
+      bodyLarge: TextStyle(fontSize: 16),
 
-      bodyMedium: TextStyle(
-        fontSize: 14,
-      ),
+      bodyMedium: TextStyle(fontSize: 14),
 
-      labelLarge: TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.w600,
-      ),
+      labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+    ),
+
+    navigationBarTheme: NavigationBarThemeData(
+      backgroundColor: AppColors.background,
+      elevation: 0,
+      height: 72,
+
+      indicatorColor: AppColors.primary.withOpacity(0.15),
+
+      iconTheme: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return const IconThemeData(color: AppColors.onPrimarySelected, size: 24);
+        }
+
+        return const IconThemeData(color: AppColors.onPrimary, size: 24);
+      }),
+
+      labelTextStyle: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return const TextStyle(
+            color: AppColors.onPrimarySelected,
+            fontSize: 12,
+            fontWeight: FontWeight.w600,
+          );
+        }
+
+        return const TextStyle(
+          color: AppColors.onPrimary,
+          fontSize: 12,
+          fontWeight: FontWeight.w500,
+        );
+      }),
     ),
   );
 }
