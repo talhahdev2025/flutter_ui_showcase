@@ -11,13 +11,23 @@ export 'package:dog_app/core/theme/app_shadows.dart';
 export 'package:dog_app/core/theme/app_theme.dart';
 export 'package:dog_app/core/theme/app_text_styles.dart';
 
-//shared
+//routes
+export 'package:dog_app/core/routes/app_routes.dart';
+
+//widgets
+export 'package:dog_app/widgets/section_header.dart';
 export 'package:dog_app/widgets/custom_icon.dart';
 export 'package:dog_app/widgets/home_card.dart';
 export 'package:dog_app/widgets/services_card.dart';
 export 'package:dog_app/widgets/ListCard.dart';
 export 'package:dog_app/models/doctor.dart';
 
+//screens
+export 'package:dog_app/screens/home_page.dart';
+export 'package:dog_app/screens/services.dart';
 
 //packages
 export 'package:flutter_svg/flutter_svg.dart';
+
+//data
+export 'package:dog_app/data/dummy_doctors.dart';
