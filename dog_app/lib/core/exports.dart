@@ -5,6 +5,7 @@ export 'package:flutter/material.dart';
 export 'package:dog_app/core/constants/app_sizes.dart';
 export 'package:dog_app/core/constants/app_colors.dart';
 export 'package:dog_app/core/constants/app_insects.dart';
+export 'package:dog_app/core/constants/app_spacing.dart';
 export 'package:dog_app/core/constants/app_radius.dart';
 export 'package:dog_app/core/constants/app_images.dart';
 export 'package:dog_app/core/theme/app_shadows.dart';
@@ -14,6 +15,7 @@ export 'package:dog_app/core/theme/app_text_styles.dart';
 //routes
 export 'package:dog_app/core/routes/app_routes.dart';
 export 'package:dog_app/core/routes/page_transition.dart';
+export 'package:dog_app/core/routes/route_generator.dart';
 
 //widgets
 export 'package:dog_app/widgets/section_header.dart';

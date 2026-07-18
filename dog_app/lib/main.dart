@@ -1,6 +1,4 @@
-import 'dart:math';
 
-import 'package:dog_app/core/routes/route_generator.dart';
 
 import 'core/exports.dart';
 
