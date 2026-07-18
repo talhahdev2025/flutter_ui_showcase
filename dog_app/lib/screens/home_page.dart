@@ -143,13 +143,19 @@ class _MyHomePageState extends State<MyHomePage> {
                                           .viewportDimension;
 
                               // double rotate = distance * 0.002;
-                              return Transform.scale(
-                                scale: scale.clamp(0.75, 1),
-                                child: ListCard(
-                                  rating: doctors[index].rating,
-                                  name: doctors[index].name,
-                                  category: doctors[index].category,
-                                  image: doctors[index].image,
+                              return GestureDetector(
+                                onTap: () => Navigator.pushNamed(
+                                  context,
+                                  AppRoutes.services,
+                                ),
+                                child: Transform.scale(
+                                  scale: scale.clamp(0.75, 1),
+                                  child: ListCard(
+                                    rating: doctors[index].rating,
+                                    name: doctors[index].name,
+                                    category: doctors[index].category,
+                                    image: doctors[index].image,
+                                  ),
                                 ),
                               );
                             },

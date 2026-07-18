@@ -8,8 +8,7 @@ class RouteGenerator {
       case AppRoutes.services:
         return MaterialPageRoute(builder: (context) => Services());
       default:
-        //TODO: add error page
-        return MaterialPageRoute(builder: (context) => ErrorWidget('error'));
+        return MaterialPageRoute(builder: (context) => ErrorPage());
     }
   }
 }

@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:dog_app/core/routes/route_generator.dart';
+
 import 'core/exports.dart';
 
 void main() {
@@ -13,11 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bruno the Dog',
-      routes: {
-        AppRoutes.home: (context) => MyHomePage(),
-        AppRoutes.services: (context) => Services(),
-        AppRoutes.errorPage: (context) => ErrorPage(),
-      },
+      onGenerateRoute: RouteGenerator.generateRoute,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       home: MainPage(),
