@@ -4,11 +4,12 @@ class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.home:
-        return MaterialPageRoute(builder: (context) => MyHomePage());
+        return PageTransition.fade(page: MyHomePage());
       case AppRoutes.services:
-        return MaterialPageRoute(builder: (context) => Services());
+        return PageTransition.fade(page: Services());
+
       default:
-        return MaterialPageRoute(builder: (context) => ErrorPage());
+        return PageTransition.slide(page: ErrorPage());
     }
   }
 }

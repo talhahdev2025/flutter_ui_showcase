@@ -13,6 +13,7 @@ export 'package:dog_app/core/theme/app_text_styles.dart';
 
 //routes
 export 'package:dog_app/core/routes/app_routes.dart';
+export 'package:dog_app/core/routes/page_transition.dart';
 
 //widgets
 export 'package:dog_app/widgets/section_header.dart';
