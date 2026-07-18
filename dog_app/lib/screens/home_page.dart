@@ -163,30 +163,6 @@ class _MyHomePageState extends State<MyHomePage> {
             );
           },
         ),
-        bottomNavigationBar: NavigationBar(
-          destinations: const [
-            NavigationDestination(
-              icon: Icon(Icons.home_rounded),
-              selectedIcon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.pets_outlined),
-              selectedIcon: Icon(Icons.pets),
-              label: 'Services',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.shopping_bag_rounded),
-              selectedIcon: Icon(Icons.shopping_bag),
-              label: 'Shop',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.person_rounded),
-              selectedIcon: Icon(Icons.person),
-              label: 'Profile',
-            ),
-          ],
-        ),
       ),
     );
   }

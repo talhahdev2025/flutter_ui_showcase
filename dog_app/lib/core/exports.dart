@@ -25,6 +25,7 @@ export 'package:dog_app/models/doctor.dart';
 //screens
 export 'package:dog_app/screens/home_page.dart';
 export 'package:dog_app/screens/services.dart';
+export 'package:dog_app/screens/error_page.dart';
 
 //packages
 export 'package:flutter_svg/flutter_svg.dart';
