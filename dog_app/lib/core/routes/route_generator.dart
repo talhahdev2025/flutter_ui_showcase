@@ -12,7 +12,7 @@ class RouteGenerator {
       case AppRoutes.doctorProfile:
         final args = settings.arguments as DoctorProfileArguments ;
 
-        return  PageTransition.slide(page: DoctorProfile(id: args.id));
+        return  PageTransition.slide(page: DoctorProfile(args:args));
 
       default:
         return PageTransition.slide(page: ErrorPage());

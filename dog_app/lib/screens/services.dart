@@ -171,6 +171,16 @@ class Services extends StatelessWidget {
                                         AppRoutes.doctorProfile,
                                         arguments: DoctorProfileArguments(
                                           id: doctor.id,
+                                          image: doctor.image,
+                                          category: doctor.category,
+                                          experience: doctor.experience,
+                                          isAvailable: doctor.available,
+                                          name: doctor.name,
+                                          petsHealed: doctor.patientsHealed,
+                                          rating: doctor.rating,
+                                          reviewerName: doctor.reviewerName,
+                                          reviewText: doctor.reviewText,
+                                          reviewTime: doctor.reviewTime,
                                         ),
                                       );
                                     },

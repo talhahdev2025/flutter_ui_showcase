@@ -1,10 +1,14 @@
 import 'package:dog_app/core/exports.dart';
+import 'package:dog_app/screens/doctor_profile_arguments.dart';
 import 'package:dog_app/widgets/custom_filled_button.dart';
 import 'package:dog_app/widgets/stat_card.dart';
 
 class DoctorProfile extends StatelessWidget {
-  const DoctorProfile({super.key, required this.id});
-  final int id;
+  const DoctorProfile({super.key, required this.args,
+  
+  });
+  final DoctorProfileArguments args;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +58,7 @@ class DoctorProfile extends StatelessWidget {
                           children: [
                             Positioned.fill(
                               child: Image.network(
-                                doctors[id].image,
+                                args.image,
                                 fit: .cover,
                               ),
                             ),
@@ -78,14 +82,14 @@ class DoctorProfile extends StatelessWidget {
                                   mainAxisAlignment: .end,
                                   children: [
                                     Text(
-                                      doctors[id].name,
+                                      args.name,
                                       style: Theme.of(context)
                                           .textTheme
                                           .headlineLarge
                                           ?.copyWith(color: AppColors.white),
                                     ),
                                     Text(
-                                      doctors[id].category,
+                                      args.category,
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyLarge
@@ -105,17 +109,17 @@ class DoctorProfile extends StatelessWidget {
                                 ),
                                 decoration: BoxDecoration(
                                   borderRadius: AppRadius.extraLarge,
-                                  color: (doctors[id].available)
+                                  color: (args.isAvailable)
                                       ? AppColors.secondary
                                       : Color(0xFFFEF3C7),
                                 ),
                                 child: Text(
-                                  (doctors[id].available)
+                                  (args.isAvailable)
                                       ? 'Available'
                                       : 'Not Available',
                                   style: Theme.of(context).textTheme.bodyLarge
                                       ?.copyWith(
-                                        color: (doctors[id].available)
+                                        color: (args.isAvailable)
                                             ? AppColors.onSecondary
                                             : Color(0xFFD97706),
                                       ),
@@ -139,7 +143,7 @@ class DoctorProfile extends StatelessWidget {
                             //#F8DCBE
                             Expanded(
                               child: StatCard(
-                                text: doctors[id].experience,
+                                text: args.experience,
                                 labelText: 'Experience',
                                 color: Color(0xFFB5E7FE),
                                 textColor: Color(0xFF0369A1),
@@ -147,7 +151,7 @@ class DoctorProfile extends StatelessWidget {
                             ),
                             Expanded(
                               child: StatCard(
-                                text: doctors[id].patientsHealed,
+                                text: args.petsHealed,
                                 labelText: 'Pets Healed',
 
                                 textColor: Color(0xFF15803D),
@@ -156,7 +160,7 @@ class DoctorProfile extends StatelessWidget {
                             ),
                             Expanded(
                               child: StatCard(
-                                text: doctors[id].rating.toString(),
+                                text: args.rating.toString(),
                                 labelText: 'Rating',
                                 textColor: Color(0xFFC2410C),
                                 color: Color(0xFFF8DCBE),
@@ -183,13 +187,13 @@ class DoctorProfile extends StatelessWidget {
                         ),
                         child: Column(
                           children: [
-                            Rating(rating: doctors[id].rating),
+                            Rating(rating: args.rating),
                             Padding(
                               padding: EdgeInsetsGeometry.symmetric(
                                 vertical: AppSpacing.md,
                               ),
                               child: Text(
-                                ' "${doctors[id].reviewText}"',
+                                ' "${args.reviewText}"',
                                 style: Theme.of(context).textTheme.bodyMedium
                                     ?.copyWith(fontStyle: .italic),
                               ),
@@ -205,8 +209,8 @@ class DoctorProfile extends StatelessWidget {
                                 Column(
                                   crossAxisAlignment: .start,
                                   children: [
-                                    Text(doctors[id].reviewerName),
-                                    Text(doctors[id].reviewTime),
+                                    Text(args.reviewerName),
+                                    Text(args.reviewTime),
                                   ],
                                 ),
                               ],
@@ -229,10 +233,10 @@ class DoctorProfile extends StatelessWidget {
                 ),
                 // TODO: Book Appointment
                 child: CustomFilledButton(
-                  text: (doctors[id].available)
+                  text: (args.isAvailable)
                       ? 'Book Appoinment'
                       : 'Not Available',
-                  onTap: (doctors[id].available) ? () {} : null,
+                  onTap: (args.isAvailable) ? () {} : null,
                 ),
               ),
             ],

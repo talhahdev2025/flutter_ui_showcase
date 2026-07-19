@@ -146,13 +146,26 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               // double rotate = distance * 0.002;
                               return GestureDetector(
-                                onTap: () => Navigator.pushNamed(
-                                  context,
-                                  AppRoutes.doctorProfile,
-                                  arguments: DoctorProfileArguments(
-                                    id: doctors[index].id,
-                                  ),
-                                ),
+                                onTap: () {
+                                  final Doctor doctor = doctors[index];
+                                  Navigator.pushNamed(
+                                    context,
+                                    AppRoutes.doctorProfile,
+                                    arguments: DoctorProfileArguments(
+                                      id: doctor.id,
+                                      category: doctor.category,
+                                      experience: doctor.experience,
+                                      isAvailable: doctor.available,
+                                      name: doctor.name,
+                                      petsHealed: doctor.patientsHealed,
+                                      rating: doctor.rating,
+                                      reviewerName: doctor.reviewerName,
+                                      reviewText: doctor.reviewText,
+                                      reviewTime: doctor.reviewTime,
+                                      image: doctor.image
+                                    ),
+                                  );
+                                },
                                 child: Transform.scale(
                                   scale: scale.clamp(0.75, 1),
                                   child: ListCard(
