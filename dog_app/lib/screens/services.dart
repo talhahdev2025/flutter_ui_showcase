@@ -1,4 +1,5 @@
 import 'package:dog_app/core/exports.dart';
+import 'package:dog_app/screens/doctor_profile_arguments.dart';
 import 'package:dog_app/widgets/custom_filled_button.dart';
 import 'package:dog_app/widgets/custom_text_field.dart';
 
@@ -164,10 +165,15 @@ class Services extends StatelessWidget {
                                 Expanded(
                                   child: CustomFilledButton(
                                     text: 'Book Now',
-                                    onTap: () => Navigator.pushNamed(
-                                      context,
-                                      AppRoutes.errorPage,
-                                    ),
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                        context,
+                                        AppRoutes.doctorProfile,
+                                        arguments: DoctorProfileArguments(
+                                          id: doctor.id,
+                                        ),
+                                      );
+                                    },
                                   ),
                                 ),
                               ],

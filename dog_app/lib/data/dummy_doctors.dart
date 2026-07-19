@@ -147,10 +147,9 @@ import 'package:dog_app/core/exports.dart';
 //   ),
 // ];
 
-
 final List<Doctor> doctors = [
   Doctor(
-    id: 1,
+    id: 0,
     name: 'Dr. Emma',
     category: 'Dentist',
     rating: 4.9,
@@ -165,11 +164,12 @@ final List<Doctor> doctors = [
     reviewerName: 'Michael Carter',
     reviewTime: '1 day ago',
     availableSlots: ['09:00 AM', '11:30 AM', '02:00 PM'],
-    about: 'Dr. Emma is an experienced dentist specializing in cosmetic and restorative dentistry with over 10 years of clinical practice.',
+    about:
+        'Dr. Emma is an experienced dentist specializing in cosmetic and restorative dentistry with over 10 years of clinical practice.',
   ),
 
   Doctor(
-    id: 2,
+    id: 1,
     name: 'Dr. Liam',
     category: 'Cardiologist',
     rating: 2.1,
@@ -184,11 +184,12 @@ final List<Doctor> doctors = [
     reviewerName: 'Sarah Wilson',
     reviewTime: '3 days ago',
     availableSlots: ['10:00 AM', '12:00 PM', '03:30 PM'],
-    about: 'Dr. Liam specializes in heart disease diagnosis, cardiac rehabilitation, and preventive cardiology.',
+    about:
+        'Dr. Liam specializes in heart disease diagnosis, cardiac rehabilitation, and preventive cardiology.',
   ),
 
   Doctor(
-    id: 3,
+    id: 2,
     name: 'Dr. Olivia',
     category: 'Dermatologist',
     rating: 5.0,
@@ -203,11 +204,12 @@ final List<Doctor> doctors = [
     reviewerName: 'Emily Brown',
     reviewTime: '5 days ago',
     availableSlots: ['09:30 AM', '01:00 PM', '04:00 PM'],
-    about: 'Dr. Olivia treats skin, hair, and nail disorders with modern dermatological procedures.',
+    about:
+        'Dr. Olivia treats skin, hair, and nail disorders with modern dermatological procedures.',
   ),
 
   Doctor(
-    id: 4,
+    id: 3,
     name: 'Dr. Noah',
     category: 'Neurologist',
     rating: 4.0,
@@ -222,11 +224,12 @@ final List<Doctor> doctors = [
     reviewerName: 'Daniel Lee',
     reviewTime: '1 week ago',
     availableSlots: ['08:30 AM', '11:00 AM', '02:30 PM'],
-    about: 'Dr. Noah specializes in diagnosing and treating disorders of the brain, spinal cord, and nervous system.',
+    about:
+        'Dr. Noah specializes in diagnosing and treating disorders of the brain, spinal cord, and nervous system.',
   ),
 
   Doctor(
-    id: 5,
+    id: 4,
     name: 'Dr. Sophia',
     category: 'Pediatrician',
     rating: 2.0,
@@ -241,11 +244,12 @@ final List<Doctor> doctors = [
     reviewerName: 'Jessica Adams',
     reviewTime: '2 days ago',
     availableSlots: ['09:00 AM', '11:00 AM', '01:30 PM'],
-    about: 'Dr. Sophia provides comprehensive healthcare services for infants, children, and adolescents.',
+    about:
+        'Dr. Sophia provides comprehensive healthcare services for infants, children, and adolescents.',
   ),
 
   Doctor(
-    id: 6,
+    id: 5,
     name: 'Dr. James',
     category: 'Orthopedic',
     rating: 3.0,
@@ -260,11 +264,12 @@ final List<Doctor> doctors = [
     reviewerName: 'Ryan Cooper',
     reviewTime: '4 days ago',
     availableSlots: ['10:00 AM', '01:00 PM', '03:00 PM'],
-    about: 'Dr. James specializes in bone, joint, ligament, and sports injury treatments.',
+    about:
+        'Dr. James specializes in bone, joint, ligament, and sports injury treatments.',
   ),
 
   Doctor(
-    id: 7,
+    id: 6,
     name: 'Dr. Isabella',
     category: 'Gynecologist',
     rating: 5.0,
@@ -279,11 +284,12 @@ final List<Doctor> doctors = [
     reviewerName: 'Olivia Harris',
     reviewTime: '6 days ago',
     availableSlots: ['09:00 AM', '12:30 PM', '03:30 PM'],
-    about: 'Dr. Isabella specializes in women’s reproductive health, pregnancy care, and preventive gynecology.',
+    about:
+        'Dr. Isabella specializes in women’s reproductive health, pregnancy care, and preventive gynecology.',
   ),
 
   Doctor(
-    id: 8,
+    id: 7,
     name: 'Dr. Benjamin',
     category: 'Psychiatrist',
     rating: 4.0,
@@ -298,11 +304,12 @@ final List<Doctor> doctors = [
     reviewerName: 'Sophia Walker',
     reviewTime: '3 days ago',
     availableSlots: ['10:30 AM', '01:30 PM', '04:30 PM'],
-    about: 'Dr. Benjamin provides treatment for anxiety, depression, stress, and other mental health conditions.',
+    about:
+        'Dr. Benjamin provides treatment for anxiety, depression, stress, and other mental health conditions.',
   ),
 
   Doctor(
-    id: 9,
+    id: 8,
     name: 'Dr. Mia',
     category: 'Ophthalmologist',
     rating: 5.0,
@@ -317,11 +324,12 @@ final List<Doctor> doctors = [
     reviewerName: 'Nathan Scott',
     reviewTime: '5 days ago',
     availableSlots: ['09:30 AM', '12:00 PM', '02:30 PM'],
-    about: 'Dr. Mia specializes in comprehensive eye care, cataracts, glaucoma, and vision correction.',
+    about:
+        'Dr. Mia specializes in comprehensive eye care, cataracts, glaucoma, and vision correction.',
   ),
 
   Doctor(
-    id: 10,
+    id: 9,
     name: 'Dr. Lucas',
     category: 'ENT Specialist',
     rating: 4.0,
@@ -336,11 +344,12 @@ final List<Doctor> doctors = [
     reviewerName: 'Grace Evans',
     reviewTime: '1 week ago',
     availableSlots: ['09:00 AM', '11:30 AM', '03:00 PM'],
-    about: 'Dr. Lucas treats conditions affecting the ear, nose, throat, and related structures.',
+    about:
+        'Dr. Lucas treats conditions affecting the ear, nose, throat, and related structures.',
   ),
 
   Doctor(
-    id: 11,
+    id: 10,
     name: 'Dr. Charlotte',
     category: 'General Physician',
     rating: 2.0,
@@ -351,15 +360,17 @@ final List<Doctor> doctors = [
     fee: 30.55,
     available: true,
     image: 'https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg',
-    reviewText: 'Dr. Charlotte was incredibly patient and professional. Her expertise made me feel comfortable throughout the consultation.',
+    reviewText:
+        'Dr. Charlotte was incredibly patient and professional. Her expertise made me feel comfortable throughout the consultation.',
     reviewerName: 'Sarah Jenkins',
     reviewTime: '2 days ago',
     availableSlots: ['09:00 AM', '11:30 AM', '02:00 PM'],
-    about: 'Dr. Charlotte is a board-certified General Physician with over 7 years of experience. She specializes in preventive healthcare, diagnosis, and treatment of common medical conditions while providing compassionate patient care.',
+    about:
+        'Dr. Charlotte is a board-certified General Physician with over 7 years of experience. She specializes in preventive healthcare, diagnosis, and treatment of common medical conditions while providing compassionate patient care.',
   ),
 
   Doctor(
-    id: 12,
+    id: 11,
     name: 'Dr. Henry',
     category: 'Surgeon',
     rating: 4.0,
@@ -374,6 +385,7 @@ final List<Doctor> doctors = [
     reviewerName: 'Christopher Hall',
     reviewTime: '2 days ago',
     availableSlots: ['08:00 AM', '11:00 AM', '02:00 PM'],
-    about: 'Dr. Henry is a highly experienced general surgeon specializing in minimally invasive and complex surgical procedures.',
+    about:
+        'Dr. Henry is a highly experienced general surgeon specializing in minimally invasive and complex surgical procedures.',
   ),
 ];

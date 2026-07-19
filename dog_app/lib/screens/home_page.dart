@@ -1,4 +1,5 @@
 import 'package:dog_app/core/exports.dart';
+import 'package:dog_app/screens/doctor_profile_arguments.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -147,7 +148,10 @@ class _MyHomePageState extends State<MyHomePage> {
                               return GestureDetector(
                                 onTap: () => Navigator.pushNamed(
                                   context,
-                                  AppRoutes.services,
+                                  AppRoutes.doctorProfile,
+                                  arguments: DoctorProfileArguments(
+                                    id: doctors[index].id,
+                                  ),
                                 ),
                                 child: Transform.scale(
                                   scale: scale.clamp(0.75, 1),

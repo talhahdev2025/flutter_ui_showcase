@@ -1,8 +1,9 @@
 import 'package:dog_app/core/constants/app_spacing.dart';
 import 'package:dog_app/core/exports.dart';
+import 'package:dog_app/widgets/rating.dart';
 
 class ListCard extends StatelessWidget {
-  num rating;
+  double rating;
   Color color;
   String category;
   String name;
@@ -70,16 +71,7 @@ class ListCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: .center,
-                  children: <Widget>[
-                    for (int i = 1; i <= 5; i++)
-                      if (i <= rating)
-                        Icon(Icons.star_rounded, color: Colors.amber)
-                      else
-                        Icon(Icons.star_border_rounded),
-                  ],
-                ),
+                Rating(rating: rating)
               ],
             ),
           ),
