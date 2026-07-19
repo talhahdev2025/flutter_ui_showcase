@@ -1,4 +1,5 @@
 import 'package:dog_app/core/exports.dart';
+import 'package:dog_app/widgets/custom_filled_button.dart';
 import 'package:dog_app/widgets/custom_text_field.dart';
 
 class Services extends StatelessWidget {
@@ -11,7 +12,6 @@ class Services extends StatelessWidget {
         builder: (context, constraints) {
           double appBarHeight = MediaQuery.of(context).size.height * 0.1;
           return Scaffold(
-            
             body: CustomScrollView(
               slivers: [
                 //AppBar
@@ -48,12 +48,12 @@ class Services extends StatelessWidget {
                         borderRadius: AppRadius.extraLarge,
                         boxShadow: AppShadows.card,
                       ),
-                      height: 360,
+                      height: 390,
                       child: Column(
                         children: [
                           Container(
                             width: double.infinity,
-                            height: 200,
+                            height: 170,
                             decoration: BoxDecoration(
                               borderRadius: AppRadius.extraLarge,
                               boxShadow: AppShadows.card,
@@ -64,34 +64,38 @@ class Services extends StatelessWidget {
                             ),
                           ),
                           //name and mail icon
-                          Row(
-                            mainAxisAlignment: .spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: .start,
-                                children: [
-                                  Text(
-                                    doctor.name,
-                                    style: Theme.of(
-                                      context,
-                                    ).textTheme.headlineMedium,
-                                  ),
-                                  Text(
-                                    '${doctor.category} • ${doctor.experience}',
-                                    style: Theme.of(
-                                      context,
-                                    ).textTheme.bodyLarge,
-                                  ),
-                                ],
-                              ),
-                              CustomIcon(
-                                iconData: Icons.mail_outline_rounded,
-                                iconColor: AppColors.onSecondary,
-                                backgroundColor: AppColors.secondary.withValues(
-                                  alpha: 0.6,
+                          Padding(
+                            padding: EdgeInsetsGeometry.symmetric(
+                              vertical: AppSpacing.md,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: .spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: .start,
+                                  children: [
+                                    Text(
+                                      doctor.name,
+                                      style: Theme.of(
+                                        context,
+                                      ).textTheme.headlineMedium,
+                                    ),
+                                    Text(
+                                      '${doctor.category} • ${doctor.experience}',
+                                      style: Theme.of(
+                                        context,
+                                      ).textTheme.bodyLarge,
+                                    ),
+                                  ],
                                 ),
-                              ),
-                            ],
+                                CustomIcon(
+                                  iconData: Icons.mail_outline_rounded,
+                                  iconColor: AppColors.onSecondary,
+                                  backgroundColor: AppColors.secondary
+                                      .withValues(alpha: 0.6),
+                                ),
+                              ],
+                            ),
                           ),
                           //reivews and distance
                           Row(
@@ -134,27 +138,40 @@ class Services extends StatelessWidget {
                             ],
                           ),
                           // book appointment
-                          Row(
-                            crossAxisAlignment: .end,
-                            children: [
-                              Expanded(
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      '\$${doctor.fee}',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headlineMedium
-                                          ?.copyWith(
-                                            color: AppColors.onPrimary,
-                                          ),
-                                    ),
-                                    Text('/visit'),
-                                  ],
+                          Padding(
+                            padding: EdgeInsetsGeometry.only(
+                              top: AppSpacing.md,
+                            ),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Row(
+                                    crossAxisAlignment: .end,
+                                    children: [
+                                      Text(
+                                        '\$${doctor.fee}',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineMedium
+                                            ?.copyWith(
+                                              color: AppColors.onPrimary,
+                                            ),
+                                      ),
+                                      Text(' / visit'),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              // Expanded(child: ),
-                            ],
+                                Expanded(
+                                  child: CustomFilledButton(
+                                    text: 'Book Now',
+                                    onTap: () => Navigator.pushNamed(
+                                      context,
+                                      AppRoutes.errorPage,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
