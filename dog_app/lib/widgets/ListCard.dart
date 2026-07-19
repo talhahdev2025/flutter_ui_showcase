@@ -71,7 +71,7 @@ class ListCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                Rating(rating: rating)
+                Rating(rating: rating),
               ],
             ),
           ),
@@ -104,10 +104,24 @@ class ListCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                CustomIcon(
-                  iconData: Icons.mail_outline_rounded,
-                  // backgroundColor: AppColors.extraLightPink,
-                  backgroundColor: color.withValues(alpha: 0.5),
+                GestureDetector(
+                  onTap: () => Navigator.pushNamed(
+                    context,
+                    AppRoutes.chat,
+                    arguments: ChatArguments(image: image, name: name),
+                  ),
+                  child: CustomIcon(
+                    iconData: Icons.mail_outline_rounded,
+                    // backgroundColor: AppColors.extraLightPink,
+                    backgroundColor: color.withValues(alpha: 0.5),
+                  ),
+                  // child: AnimatedIconButton(
+                  //   child: CustomIcon(
+                  //     iconData: Icons.mail_outline_rounded,
+                  //     // backgroundColor: AppColors.extraLightPink,
+                  //     backgroundColor: color.withValues(alpha: 0.5),
+                  //   ),
+                  // ),
                 ),
               ],
             ),
@@ -117,3 +131,55 @@ class ListCard extends StatelessWidget {
     );
   }
 }
+
+// class AnimatedIconButton extends StatefulWidget {
+//   const AnimatedIconButton({super.key, required this.child});
+//   final Widget child;
+//   @override
+//   State<AnimatedIconButton> createState() => _AnimatedIconButtonState();
+// }
+
+// class _AnimatedIconButtonState extends State<AnimatedIconButton> {
+//   double _scale = 1.0;
+
+//   void _animate() async {
+//     setState(() => _scale = 1.2);
+
+//     await Future.delayed(const Duration(milliseconds: 100));
+
+//     setState(() => _scale = 1.0);
+//   }
+
+//   void _scaleDown() {
+//     setState(() {
+//       _scale = 0.9;
+//     });
+//   }
+
+//   void _scaleUp() {
+//     setState(() {
+//       _scale = 1.0;
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return GestureDetector(
+//       onTap: () {
+//         _animate();
+//       },
+//       onLongPressDown: (details) {
+//         _scaleDown();
+//       },
+//       onLongPressEnd: (details) {
+//         _scaleUp();
+//       },
+//       child: AnimatedScale(
+//         scale: _scale,
+//         duration: const Duration(milliseconds: 100),
+//         curve: Curves.easeOut,
+//         child: widget.child,
+//       ),
+//     );
+//   }
+// }

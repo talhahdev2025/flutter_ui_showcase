@@ -1,18 +1,21 @@
 import 'package:dog_app/core/exports.dart';
-import 'package:dog_app/screens/doctor_profile.dart';
-import 'package:dog_app/screens/doctor_profile_arguments.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.home:
         return PageTransition.slide(page: MyHomePage());
+
       case AppRoutes.services:
         return PageTransition.slide(page: Services());
-      case AppRoutes.doctorProfile:
-        final args = settings.arguments as DoctorProfileArguments ;
 
-        return  PageTransition.slide(page: DoctorProfile(args:args));
+      case AppRoutes.doctorProfile:
+        final args = settings.arguments as DoctorProfileArguments;
+        return PageTransition.slide(page: DoctorProfile(args: args));
+
+      case AppRoutes.chat:
+        final args = settings.arguments as ChatArguments;
+        return PageTransition.slide(page: Chat(args: args));
 
       default:
         return PageTransition.slide(page: ErrorPage());

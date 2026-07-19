@@ -5,5 +5,6 @@ class AppRoutes {
   static const shop = '/shop';
   static const profile = '/profile';
   static const doctorProfile = '/doctorProfile';
+  static const chat = '/chat';
   static const errorPage = '/error';
 }

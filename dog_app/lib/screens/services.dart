@@ -1,7 +1,4 @@
 import 'package:dog_app/core/exports.dart';
-import 'package:dog_app/screens/doctor_profile_arguments.dart';
-import 'package:dog_app/widgets/custom_filled_button.dart';
-import 'package:dog_app/widgets/custom_text_field.dart';
 
 class Services extends StatelessWidget {
   const Services({super.key});
@@ -89,11 +86,28 @@ class Services extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                CustomIcon(
-                                  iconData: Icons.mail_outline_rounded,
-                                  iconColor: AppColors.onSecondary,
-                                  backgroundColor: AppColors.secondary
-                                      .withValues(alpha: 0.6),
+                                // TODO:ADD gesture logic inside the
+                                //custom icon and handles all the gesture
+                                // long press etc inside custom icon and
+                                // only create property of onTap to handle
+                                // explicitly
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                      context,
+                                      AppRoutes.chat,
+                                      arguments: ChatArguments(
+                                        image: doctor.image,
+                                        name: doctor.name,
+                                      ),
+                                    );
+                                  },
+                                  child: CustomIcon(
+                                    iconData: Icons.mail_outline_rounded,
+                                    iconColor: AppColors.onSecondary,
+                                    backgroundColor: AppColors.secondary
+                                        .withValues(alpha: 0.6),
+                                  ),
                                 ),
                               ],
                             ),

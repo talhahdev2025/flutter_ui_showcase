@@ -1,14 +1,8 @@
 import 'package:dog_app/core/exports.dart';
-import 'package:dog_app/screens/doctor_profile_arguments.dart';
-import 'package:dog_app/widgets/custom_filled_button.dart';
-import 'package:dog_app/widgets/stat_card.dart';
 
 class DoctorProfile extends StatelessWidget {
-  const DoctorProfile({super.key, required this.args,
-  
-  });
+  const DoctorProfile({super.key, required this.args});
   final DoctorProfileArguments args;
-  
 
   @override
   Widget build(BuildContext context) {
@@ -57,10 +51,7 @@ class DoctorProfile extends StatelessWidget {
                           clipBehavior: .hardEdge,
                           children: [
                             Positioned.fill(
-                              child: Image.network(
-                                args.image,
-                                fit: .cover,
-                              ),
+                              child: Image.network(args.image, fit: .cover),
                             ),
                             Positioned.fill(
                               child: Container(
@@ -247,9 +238,11 @@ class DoctorProfile extends StatelessWidget {
               backgroundColor: AppColors.background,
               shape: CircleBorder(),
               onPressed: () {
-                ScaffoldMessenger.of(
+                Navigator.pushNamed(
                   context,
-                ).showSnackBar(SnackBar(content: Text('FAB Pressed')));
+                  AppRoutes.chat,
+                  arguments: ChatArguments(image: args.image, name: args.name),
+                );
               },
               child: Icon(Icons.message_rounded, color: AppColors.primary),
             ),

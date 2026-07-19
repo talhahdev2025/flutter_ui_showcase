@@ -25,12 +25,19 @@ export 'package:dog_app/widgets/services_card.dart';
 export 'package:dog_app/widgets/ListCard.dart';
 export 'package:dog_app/widgets/rating.dart';
 export 'package:dog_app/models/doctor.dart';
+export 'package:dog_app/widgets/custom_filled_button.dart';
+export 'package:dog_app/widgets/stat_card.dart';
+export 'package:dog_app/widgets/custom_text_field.dart';
 
 //screens
 export 'package:dog_app/screens/home_page.dart';
 export 'package:dog_app/screens/services.dart';
+export 'package:dog_app/screens/chat.dart';
+export 'package:dog_app/screens/doctor_profile.dart';
 export 'package:dog_app/screens/error_page.dart';
-
+// Route Settings Args
+export 'package:dog_app/screens/chat_arguments.dart';
+export 'package:dog_app/screens/doctor_profile_arguments.dart';
 //packages
 export 'package:flutter_svg/flutter_svg.dart';
 
