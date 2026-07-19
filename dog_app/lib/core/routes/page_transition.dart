@@ -2,7 +2,7 @@ import 'package:dog_app/core/exports.dart';
 
 class PageTransition {
   PageTransition._();
-  static const _transitionDuration = Duration(milliseconds: 300);
+  static const _transitionDuration = Duration(seconds: 10);
   static Route fade({required Widget page}) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,

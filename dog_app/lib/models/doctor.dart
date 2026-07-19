@@ -1,14 +1,26 @@
 class Doctor {
-  String name;
-  String category;
-  String image;
-  num rating;
+  final String name;
+  final String category;
+  final String image;
+  final double rating;
+  final int id;
+  final String experience;
+  final int reviews;
+  final double distance;
+  final double fee;
+  final bool available;
 
-  Doctor({
+  const Doctor({
     required this.name,
     required this.category,
     required this.image,
     required this.rating,
+    required this.available,
+    required this.distance,
+    required this.experience,
+    required this.fee,
+    required this.id,
+    required this.reviews,
   });
 
   factory Doctor.fromMap(Map<String, dynamic> map) {
@@ -17,6 +29,12 @@ class Doctor {
       category: map['category'],
       image: map['image'],
       rating: map['rating'],
+      available: map['available'],
+      distance: map['distance'],
+      experience: map['experience'],
+      fee: map['fee'],
+      id: map['id'],
+      reviews: map['reviews'],
     );
   }
 
@@ -26,6 +44,12 @@ class Doctor {
       'category': category,
       'rating': rating,
       'image': image,
+      'available': available,
+      'distance': distance,
+      'experience': experience,
+      'fee': fee,
+      'id': id,
+      'reviews': reviews,
     };
   }
 }

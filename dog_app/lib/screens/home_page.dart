@@ -31,6 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
     double appBarHeight = MediaQuery.of(context).size.height * 0.1;
     return SafeArea(
       child: Scaffold(
+        backgroundColor: AppColors.surface,
         // appBar: AppBar(
         //   toolbarHeight: 72,
         //   actionsPadding: AppInsets.allMd,

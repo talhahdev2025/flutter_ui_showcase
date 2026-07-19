@@ -1,5 +1,3 @@
-
-
 import 'core/exports.dart';
 
 void main() {
@@ -29,10 +27,16 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   //TODO: update list after creating required screens
-  final List<Widget> _pages = const [MyHomePage(), Services(), ErrorPage(),ErrorPage()];
+  final List<Widget> _pages = const [
+    MyHomePage(),
+    Services(),
+    ErrorPage(),
+    ErrorPage(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.surface,
       body: _pages[_selectedIndex],
       bottomNavigationBar: NavigationBar(
         selectedIndex: _selectedIndex,

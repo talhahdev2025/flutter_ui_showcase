@@ -23,25 +23,38 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      keyboardType: .text,
-      controller: _textEditingController,
-      decoration: InputDecoration(
-        border: OutlineInputBorder(borderRadius: AppRadius.medium),
-        hint: Text('Search for docotrs , clinics'),
-        prefixIcon: Icon(Icons.search_rounded),
-        suffixIcon: (_textEditingController.text.isNotEmpty)
-            ? IconButton(
-                icon: Icon(Icons.clear_rounded),
-                onPressed: () => setState(() => _textEditingController.clear()),
-              )
-            : Icon(Icons.filter_list_rounded),
+    return Padding(
+      padding: AppInsets.allMd,
+      child: TextField(
+        keyboardType: .text,
+        controller: _textEditingController,
+        decoration: InputDecoration(
+          fillColor: AppColors.surfaceLow,
+          filled: true,
+          border: OutlineInputBorder(
+            borderRadius: AppRadius.medium,
+            borderSide: BorderSide.none,
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: AppRadius.medium,
+            borderSide: BorderSide(color: AppColors.primary),
+          ),
+          hint: Text('Search for docotrs , clinics'),
+          prefixIcon: Icon(Icons.search_rounded),
+          suffixIcon: (_textEditingController.text.isNotEmpty)
+              ? IconButton(
+                  icon: Icon(Icons.clear_rounded, color: AppColors.onPrimary),
+                  onPressed: () =>
+                      setState(() => _textEditingController.clear()),
+                )
+              : Icon(Icons.filter_list_rounded, color: AppColors.onPrimary),
+        ),
+        onSubmitted: (value) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text('Searching for $value')));
+        },
       ),
-      onSubmitted: (value) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text('Searching for $value')));
-      },
     );
   }
 }

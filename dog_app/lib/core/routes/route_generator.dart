@@ -4,9 +4,9 @@ class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.home:
-        return PageTransition.fade(page: MyHomePage());
+        return PageTransition.slide(page: MyHomePage());
       case AppRoutes.services:
-        return PageTransition.fade(page: Services());
+        return PageTransition.slide(page: Services());
 
       default:
         return PageTransition.slide(page: ErrorPage());

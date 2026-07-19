@@ -19,7 +19,7 @@ class AppTheme {
     useMaterial3: true,
     fontFamily: 'Inter',
 
-    scaffoldBackgroundColor: AppColors.background,
+    scaffoldBackgroundColor: AppColors.surface,
 
     colorScheme: const ColorScheme.light(
       primary: AppColors.primary,
@@ -27,7 +27,7 @@ class AppTheme {
     ),
 
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.surface,
       elevation: 0,
       centerTitle: false,
     ),
@@ -55,7 +55,10 @@ class AppTheme {
 
       iconTheme: WidgetStateProperty.resolveWith((states) {
         if (states.contains(WidgetState.selected)) {
-          return const IconThemeData(color: AppColors.onPrimarySelected, size: 24);
+          return const IconThemeData(
+            color: AppColors.onPrimarySelected,
+            size: 24,
+          );
         }
 
         return const IconThemeData(color: AppColors.onPrimary, size: 24);
