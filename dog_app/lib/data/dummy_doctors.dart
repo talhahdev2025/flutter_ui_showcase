@@ -166,6 +166,10 @@ final List<Doctor> doctors = [
     availableSlots: ['09:00 AM', '11:30 AM', '02:00 PM'],
     about:
         'Dr. Emma is an experienced dentist specializing in cosmetic and restorative dentistry with over 10 years of clinical practice.',
+    chatList: [
+      {'text': 'Hi there! How is Bruno doing today?', 'isMe': false},
+      {'text': 'yeah he is great!', 'isMe': true},
+    ],
   ),
 
   Doctor(
@@ -186,6 +190,25 @@ final List<Doctor> doctors = [
     availableSlots: ['10:00 AM', '12:00 PM', '03:30 PM'],
     about:
         'Dr. Liam specializes in heart disease diagnosis, cardiac rehabilitation, and preventive cardiology.',
+    chatList: [
+      {'text': 'Hi there! How is Bruno doing today?', 'isMe': false},
+      {
+        'text':
+            'He is doing much better today. He has been eating well and seems more active.',
+        'isMe': true,
+      },
+      {
+        'text':
+            'That is wonderful to hear! Has he been taking his medication on time?',
+        'isMe': false,
+      },
+      {'text': 'Yes, every morning just as you recommended.', 'isMe': true},
+      {
+        'text':
+            'Perfect. Continue the treatment for another five days and let me know if anything changes.',
+        'isMe': false,
+      },
+    ],
   ),
 
   Doctor(
@@ -206,6 +229,18 @@ final List<Doctor> doctors = [
     availableSlots: ['09:30 AM', '01:00 PM', '04:00 PM'],
     about:
         'Dr. Olivia treats skin, hair, and nail disorders with modern dermatological procedures.',
+    chatList: [
+      {
+        'text':
+            'Keep him on the current diet for another week. After that, gradually mix in his regular food.',
+        'isMe': false,
+      },
+      {
+        'text':
+            'Got it. Thanks for all your help. I really appreciate the guidance.',
+        'isMe': true,
+      },
+    ],
   ),
 
   Doctor(
@@ -226,6 +261,18 @@ final List<Doctor> doctors = [
     availableSlots: ['08:30 AM', '11:00 AM', '02:30 PM'],
     about:
         'Dr. Noah specializes in diagnosing and treating disorders of the brain, spinal cord, and nervous system.',
+    chatList: [
+      {
+        'text':
+            'Keep him on the current diet for another week. After that, gradually mix in his regular food.',
+        'isMe': false,
+      },
+      {
+        'text':
+            'Got it. Thanks for all your help. I really appreciate the guidance.',
+        'isMe': true,
+      },
+    ],
   ),
 
   Doctor(
@@ -246,6 +293,25 @@ final List<Doctor> doctors = [
     availableSlots: ['09:00 AM', '11:00 AM', '01:30 PM'],
     about:
         'Dr. Sophia provides comprehensive healthcare services for infants, children, and adolescents.',
+    chatList: [
+      {'text': 'Hi there! How is Bruno doing today?', 'isMe': false},
+      {
+        'text':
+            'He is doing much better today. He has been eating well and seems more active.',
+        'isMe': true,
+      },
+      {
+        'text':
+            'That is wonderful to hear! Has he been taking his medication on time?',
+        'isMe': false,
+      },
+      {'text': 'Yes, every morning just as you recommended.', 'isMe': true},
+      {
+        'text':
+            'Perfect. Continue the treatment for another five days and let me know if anything changes.',
+        'isMe': false,
+      },
+    ],
   ),
 
   Doctor(
@@ -266,6 +332,14 @@ final List<Doctor> doctors = [
     availableSlots: ['10:00 AM', '01:00 PM', '03:00 PM'],
     about:
         'Dr. James specializes in bone, joint, ligament, and sports injury treatments.',
+    chatList: [
+      {'text': 'Hi there! How is Bruno doing today?', 'isMe': false},
+      {
+        'text':
+            'He is doing much better today. He has been eating well and seems more active.',
+        'isMe': true,
+      },
+    ],
   ),
 
   Doctor(
@@ -286,6 +360,18 @@ final List<Doctor> doctors = [
     availableSlots: ['09:00 AM', '12:30 PM', '03:30 PM'],
     about:
         'Dr. Isabella specializes in women’s reproductive health, pregnancy care, and preventive gynecology.',
+         chatList: [
+      {
+        'text':
+            'Keep him on the current diet for another week. After that, gradually mix in his regular food.',
+        'isMe': false,
+      },
+      {
+        'text':
+            'Got it. Thanks for all your help. I really appreciate the guidance.',
+        'isMe': true,
+      },
+    ],
   ),
 
   Doctor(
@@ -306,6 +392,18 @@ final List<Doctor> doctors = [
     availableSlots: ['10:30 AM', '01:30 PM', '04:30 PM'],
     about:
         'Dr. Benjamin provides treatment for anxiety, depression, stress, and other mental health conditions.',
+    chatList: [
+      {
+        'text':
+            'Keep him on the current diet for another week. After that, gradually mix in his regular food.',
+        'isMe': false,
+      },
+      {
+        'text':
+            'Got it. Thanks for all your help. I really appreciate the guidance.',
+        'isMe': true,
+      },
+    ],
   ),
 
   Doctor(
@@ -326,6 +424,18 @@ final List<Doctor> doctors = [
     availableSlots: ['09:30 AM', '12:00 PM', '02:30 PM'],
     about:
         'Dr. Mia specializes in comprehensive eye care, cataracts, glaucoma, and vision correction.',
+    chatList: [
+      {
+        'text':
+            'Keep him on the current diet for another week. After that, gradually mix in his regular food.',
+        'isMe': false,
+      },
+      {
+        'text':
+            'Got it. Thanks for all your help. I really appreciate the guidance.',
+        'isMe': true,
+      },
+    ],
   ),
 
   Doctor(
@@ -346,6 +456,18 @@ final List<Doctor> doctors = [
     availableSlots: ['09:00 AM', '11:30 AM', '03:00 PM'],
     about:
         'Dr. Lucas treats conditions affecting the ear, nose, throat, and related structures.',
+    chatList: [
+      {
+        'text':
+            'Keep him on the current diet for another week. After that, gradually mix in his regular food.',
+        'isMe': false,
+      },
+      {
+        'text':
+            'Got it. Thanks for all your help. I really appreciate the guidance.',
+        'isMe': true,
+      },
+    ],
   ),
 
   Doctor(
@@ -367,6 +489,18 @@ final List<Doctor> doctors = [
     availableSlots: ['09:00 AM', '11:30 AM', '02:00 PM'],
     about:
         'Dr. Charlotte is a board-certified General Physician with over 7 years of experience. She specializes in preventive healthcare, diagnosis, and treatment of common medical conditions while providing compassionate patient care.',
+    chatList: [
+      {
+        'text':
+            'Keep him on the current diet for another week. After that, gradually mix in his regular food.',
+        'isMe': false,
+      },
+      {
+        'text':
+            'Got it. Thanks for all your help. I really appreciate the guidance.',
+        'isMe': true,
+      },
+    ],
   ),
 
   Doctor(
@@ -387,5 +521,17 @@ final List<Doctor> doctors = [
     availableSlots: ['08:00 AM', '11:00 AM', '02:00 PM'],
     about:
         'Dr. Henry is a highly experienced general surgeon specializing in minimally invasive and complex surgical procedures.',
+    chatList: [
+      {
+        'text':
+            'Keep him on the current diet for another week. After that, gradually mix in his regular food.',
+        'isMe': false,
+      },
+      {
+        'text':
+            'Got it. Thanks for all your help. I really appreciate the guidance.',
+        'isMe': true,
+      },
+    ],
   ),
 ];

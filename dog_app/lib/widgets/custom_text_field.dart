@@ -1,6 +1,15 @@
 import 'package:dog_app/core/exports.dart';
 
 class CustomTextField extends StatefulWidget {
+  const CustomTextField({
+    super.key,
+    required this._prefixIcon,
+    required this._sufixIcon,
+    required this.onSubmitted,
+  });
+  final IconData _prefixIcon;
+  final IconData _sufixIcon;
+  final void Function(String value)? onSubmitted;
   @override
   State<StatefulWidget> createState() => _CustomTextFieldState();
 }
@@ -40,20 +49,16 @@ class _CustomTextFieldState extends State<CustomTextField> {
             borderSide: BorderSide(color: AppColors.primary),
           ),
           hint: Text('Search for docotrs , clinics'),
-          prefixIcon: Icon(Icons.search_rounded),
+          prefixIcon: Icon(widget._prefixIcon),
           suffixIcon: (_textEditingController.text.isNotEmpty)
               ? IconButton(
                   icon: Icon(Icons.clear_rounded, color: AppColors.onPrimary),
                   onPressed: () =>
                       setState(() => _textEditingController.clear()),
                 )
-              : Icon(Icons.filter_list_rounded, color: AppColors.onPrimary),
+              : Icon(widget._sufixIcon, color: AppColors.onPrimary),
         ),
-        onSubmitted: (value) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text('Searching for $value')));
-        },
+        onSubmitted: widget.onSubmitted
       ),
     );
   }

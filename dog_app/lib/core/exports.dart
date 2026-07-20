@@ -28,6 +28,7 @@ export 'package:dog_app/models/doctor.dart';
 export 'package:dog_app/widgets/custom_filled_button.dart';
 export 'package:dog_app/widgets/stat_card.dart';
 export 'package:dog_app/widgets/custom_text_field.dart';
+export 'package:dog_app/widgets/chat_bubble.dart';
 
 //screens
 export 'package:dog_app/screens/home_page.dart';
@@ -43,3 +44,4 @@ export 'package:flutter_svg/flutter_svg.dart';
 
 //data
 export 'package:dog_app/data/dummy_doctors.dart';
+export 'package:dog_app/data/dummy_chat.dart';

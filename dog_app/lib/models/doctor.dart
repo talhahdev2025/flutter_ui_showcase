@@ -15,6 +15,7 @@ class Doctor {
   final String reviewTime;
   final List<String> availableSlots;
   final String about;
+  final List<Map<String, dynamic>> chatList;
 
   /*
 
@@ -44,6 +45,7 @@ class Doctor {
     required this.reviewText,
     required this.reviewTime,
     required this.reviewerName,
+    required this.chatList,
   });
 
   factory Doctor.fromMap(Map<String, dynamic> map) {
@@ -64,9 +66,10 @@ class Doctor {
       reviewText: map['reviewText'],
       reviewTime: map['reviewTime'],
       reviewerName: map['reviewerName'],
+      chatList: map['chatList']
     );
   }
-// TODO: Edit JSON
+  // TODO: Edit JSON
   Map<String, dynamic> toJson() {
     return {
       // 'name': name,

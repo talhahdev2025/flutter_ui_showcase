@@ -169,6 +169,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 child: Transform.scale(
                                   scale: scale.clamp(0.75, 1),
                                   child: ListCard(
+                                    id: doctors[index].id,
                                     rating: doctors[index].rating,
                                     name: doctors[index].name,
                                     category: doctors[index].category,

@@ -241,7 +241,7 @@ class DoctorProfile extends StatelessWidget {
                 Navigator.pushNamed(
                   context,
                   AppRoutes.chat,
-                  arguments: ChatArguments(image: args.image, name: args.name),
+                  arguments: ChatArguments(image: args.image, name: args.name,id: args.id),
                 );
               },
               child: Icon(Icons.message_rounded, color: AppColors.primary),

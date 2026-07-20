@@ -26,7 +26,17 @@ class Services extends StatelessWidget {
                   ),
                 ),
                 //serach box
-                SliverToBoxAdapter(child: CustomTextField()),
+                SliverToBoxAdapter(
+                  child: CustomTextField(
+                    prefixIcon: Icons.search_rounded,
+                    sufixIcon: Icons.filter_list_rounded,
+                    onSubmitted: (value) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Searching for $value')),
+                      );
+                    },
+                  ),
+                ),
                 SliverToBoxAdapter(
                   child: SectionHeader(
                     title: 'Top Vetrinarians',
@@ -99,6 +109,7 @@ class Services extends StatelessWidget {
                                       arguments: ChatArguments(
                                         image: doctor.image,
                                         name: doctor.name,
+                                        id: doctor.id
                                       ),
                                     );
                                   },

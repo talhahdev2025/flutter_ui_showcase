@@ -7,11 +7,13 @@ class ListCard extends StatelessWidget {
   Color color;
   String category;
   String name;
+  int id;
   String image;
   ListCard({
     this.color = AppColors.lightBlue,
     this.rating = 0,
     required this.category,
+    required this.id,
     required this.image,
     required this.name,
   });
@@ -108,7 +110,7 @@ class ListCard extends StatelessWidget {
                   onTap: () => Navigator.pushNamed(
                     context,
                     AppRoutes.chat,
-                    arguments: ChatArguments(image: image, name: name),
+                    arguments: ChatArguments(image: image, name: name, id: id),
                   ),
                   child: CustomIcon(
                     iconData: Icons.mail_outline_rounded,
