@@ -27,9 +27,10 @@ class Services extends StatelessWidget {
                 ),
                 //serach box
                 SliverToBoxAdapter(
-                  child: CustomTextField(
+                  child:  CustomTextField(
                     prefixIcon: Icons.search_rounded,
                     sufixIcon: Icons.filter_list_rounded,
+                    hint: 'Search for docotrs , clinics',
                     onSubmitted: (value) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text('Searching for $value')),

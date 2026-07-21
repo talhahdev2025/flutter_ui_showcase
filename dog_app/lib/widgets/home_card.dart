@@ -1,6 +1,16 @@
 import 'package:dog_app/core/exports.dart';
 
 class HomeCard extends StatelessWidget {
+  const HomeCard({super.key, 
+    required this.btnText,
+    required this.image,
+    required this.labelText,
+    required this.text,
+  });
+  final String text;
+  final String btnText;
+  final String labelText;
+  final String image;
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -31,7 +41,7 @@ class HomeCard extends StatelessWidget {
                         crossAxisAlignment: .start,
                         children: [
                           Text(
-                            'New Work Shop for Dogs',
+                            text,
                             style: TextStyle(
                               height: 1,
                               fontWeight: .w500,
@@ -58,12 +68,12 @@ class HomeCard extends StatelessWidget {
                                   borderRadius: AppRadius.large,
                                 ),
                                 child: Text(
-                                  'Join',
+                                  btnText,
                                   style: TextStyle(color: Colors.black),
                                 ),
                               ),
                               Text(
-                                ' +2k Members',
+                                labelText,
                                 style: TextStyle(color: AppColors.white),
                               ),
                             ],
@@ -82,7 +92,7 @@ class HomeCard extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius: AppRadius.extraLarge,
                           image: DecorationImage(
-                            image: AssetImage(AppImages.homeCardDog),
+                            image: AssetImage(image),
                             fit: .cover,
                           ),
                         ),

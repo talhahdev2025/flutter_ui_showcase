@@ -66,7 +66,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   // home card
                   SliverPadding(
                     padding: AppInsets.allMd,
-                    sliver: SliverToBoxAdapter(child: HomeCard()),
+                    sliver: SliverToBoxAdapter(
+                      child: HomeCard(
+                        btnText: 'Join',
+                        image: AppImages.homeCardDog,
+                        labelText: '+2k Memebers',
+                        text: 'New Work Shop for Dogs',
+                      ),
+                    ),
                   ),
                   //Services
                   SliverToBoxAdapter(
@@ -162,7 +169,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       reviewerName: doctor.reviewerName,
                                       reviewText: doctor.reviewText,
                                       reviewTime: doctor.reviewTime,
-                                      image: doctor.image
+                                      image: doctor.image,
                                     ),
                                   );
                                 },

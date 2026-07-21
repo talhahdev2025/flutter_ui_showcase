@@ -8,4 +8,5 @@ final class AppImages {
   static const emptyImageSvg = 'assets/images/empty_image_svg.svg';
   static const stethoscopeDoctorSvg = 'assets/images/stethoscope_doctor_svg.svg';
   static const syringeVaccineSvg = 'assets/images/syringe_vaccine_svg.svg';
+
 }

@@ -6,9 +6,11 @@ class CustomTextField extends StatefulWidget {
     required this._prefixIcon,
     required this._sufixIcon,
     required this.onSubmitted,
+    this.hint='search',
   });
   final IconData _prefixIcon;
-  final IconData _sufixIcon;
+  final IconData? _sufixIcon;
+  final String hint;
   final void Function(String value)? onSubmitted;
   @override
   State<StatefulWidget> createState() => _CustomTextFieldState();
@@ -48,7 +50,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             borderRadius: AppRadius.medium,
             borderSide: BorderSide(color: AppColors.primary),
           ),
-          hint: Text('Search for docotrs , clinics'),
+          hint: Text(widget.hint),
           prefixIcon: Icon(widget._prefixIcon),
           suffixIcon: (_textEditingController.text.isNotEmpty)
               ? IconButton(
@@ -58,7 +60,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 )
               : Icon(widget._sufixIcon, color: AppColors.onPrimary),
         ),
-        onSubmitted: widget.onSubmitted
+        onSubmitted: widget.onSubmitted,
       ),
     );
   }

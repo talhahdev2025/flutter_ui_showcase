@@ -1,9 +1,9 @@
 import 'package:dog_app/core/exports.dart';
 
 class SectionHeader extends StatelessWidget {
-  String title;
-  String? actionText;
-  SectionHeader({required this.title, this.actionText});
+  final String title;
+  final String? actionText;
+  const SectionHeader({super.key,required this.title, this.actionText});
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

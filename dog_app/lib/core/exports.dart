@@ -34,6 +34,7 @@ export 'package:dog_app/widgets/chat_bubble.dart';
 export 'package:dog_app/screens/home_page.dart';
 export 'package:dog_app/screens/services.dart';
 export 'package:dog_app/screens/chat.dart';
+export 'package:dog_app/screens/shop.dart';
 export 'package:dog_app/screens/doctor_profile.dart';
 export 'package:dog_app/screens/error_page.dart';
 // Route Settings Args

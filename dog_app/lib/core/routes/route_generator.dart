@@ -16,6 +16,8 @@ class RouteGenerator {
       case AppRoutes.chat:
         final args = settings.arguments as ChatArguments;
         return PageTransition.slide(page: Chat(args: args));
+      case AppRoutes.shop:
+        return PageTransition.slide(page: Shop());
 
       default:
         return PageTransition.slide(page: ErrorPage());
