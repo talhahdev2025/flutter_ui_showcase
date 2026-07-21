@@ -106,6 +106,7 @@ class Shop extends StatelessWidget {
                           ),
                         ),
                         // food name
+                        Spacer(),
                         Text(
                           dogFood.name,
                           style: Theme.of(context).textTheme.labelLarge,
