@@ -19,6 +19,9 @@ class RouteGenerator {
       case AppRoutes.shop:
         return PageTransition.slide(page: Shop());
 
+      case AppRoutes.userProfile:
+        return PageTransition.slide(page: UserProfile());
+
       default:
         return PageTransition.slide(page: ErrorPage());
     }

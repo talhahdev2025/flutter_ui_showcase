@@ -1,3 +1,5 @@
+
+
 import 'core/exports.dart';
 
 void main() {
@@ -33,7 +35,7 @@ class _MainPageState extends State<MainPage> {
     MyHomePage(),
     Services(),
     Shop(),
-    ErrorPage(),
+    UserProfile(),
   ];
   @override
   Widget build(BuildContext context) {
