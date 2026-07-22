@@ -51,4 +51,4 @@ export 'package:dog_app/data/dummy_chat.dart';
 
 // Animations
 export 'package:dog_app/core/animation/app_animations.dart';
-export 'package:dog_app/core/animation/press_animation.dart';
+export 'package:dog_app/core/animation/on_tap_up_down_animation.dart';

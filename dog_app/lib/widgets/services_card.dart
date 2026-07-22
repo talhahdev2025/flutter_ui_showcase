@@ -11,21 +11,23 @@ class ServicesCard extends StatelessWidget {
   String imageUrl;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: .spaceBetween,
-      children: [
-        Container(
-          padding: AppInsets.allMd,
-          margin: EdgeInsets.only(bottom: 4),
-          decoration: BoxDecoration(
-            color: color,
-            borderRadius: AppRadius.large,
-            border: Border.all(color: AppColors.grey),
+    return onTapUpDownAnimated(
+      child: Column(
+        mainAxisAlignment: .spaceBetween,
+        children: [
+          Container(
+            padding: AppInsets.allMd,
+            margin: EdgeInsets.only(bottom: 4),
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: AppRadius.large,
+              border: Border.all(color: AppColors.grey),
+            ),
+            child: SvgPicture.asset(imageUrl, fit: BoxFit.cover, height: 32),
           ),
-          child: SvgPicture.asset(imageUrl, fit: BoxFit.cover, height: 32),
-        ),
-        Text(text),
-      ],
+          Text(text),
+        ],
+      ),
     );
   }
 }
