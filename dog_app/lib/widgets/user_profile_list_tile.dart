@@ -4,11 +4,11 @@ class UserProfileListTile extends StatelessWidget {
   const UserProfileListTile({
     super.key,
     required this.headlineText,
-     this.lableText,
+    this.lableText,
     required this.leadingIcon,
     required this.leadingBackgroundColor,
     required this.leadingIconColor,
-    this.onTap
+    this.onTap,
   });
   final String headlineText;
   final String? lableText;
@@ -19,25 +19,22 @@ class UserProfileListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListTile(
-        onTap: onTap,
-        leading: CircleAvatar(
-          backgroundColor: leadingBackgroundColor,
-          child: Icon(leadingIcon, color: leadingIconColor),
-        ),
-        title: Text(
-          headlineText,
-          style: Theme.of(
-            context,
-          ).textTheme.bodyLarge?.copyWith(fontWeight: .bold),
-        ),
-        subtitle:(lableText!=null)? Text(
-          lableText!,
-          style: Theme.of(context).textTheme.bodyMedium,
-        ):null,
-        trailing: Icon(Icons.arrow_forward_ios_rounded),
+    return ListTile(
+      onTap: onTap,
+      leading: CircleAvatar(
+        backgroundColor: leadingBackgroundColor,
+        child: Icon(leadingIcon, color: leadingIconColor),
       ),
+      title: Text(
+        headlineText,
+        style: Theme.of(
+          context,
+        ).textTheme.bodyLarge?.copyWith(fontWeight: .bold),
+      ),
+      subtitle: (lableText != null)
+          ? Text(lableText!, style: Theme.of(context).textTheme.bodyMedium)
+          : null,
+      trailing: Icon(Icons.arrow_forward_ios_rounded),
     );
   }
 }

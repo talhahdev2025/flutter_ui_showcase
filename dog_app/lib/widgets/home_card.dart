@@ -1,7 +1,8 @@
 import 'package:dog_app/core/exports.dart';
 
 class HomeCard extends StatelessWidget {
-  const HomeCard({super.key, 
+  const HomeCard({
+    super.key,
     required this.btnText,
     required this.image,
     required this.labelText,

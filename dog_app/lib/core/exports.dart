@@ -48,3 +48,7 @@ export 'package:flutter_svg/flutter_svg.dart';
 //data
 export 'package:dog_app/data/dummy_doctors.dart';
 export 'package:dog_app/data/dummy_chat.dart';
+
+// Animations
+export 'package:dog_app/core/animation/app_animations.dart';
+export 'package:dog_app/core/animation/press_animation.dart';

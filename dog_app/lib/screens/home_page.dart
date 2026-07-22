@@ -1,5 +1,4 @@
 import 'package:dog_app/core/exports.dart';
-import 'package:dog_app/screens/doctor_profile_arguments.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
