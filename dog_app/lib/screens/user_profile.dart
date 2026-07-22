@@ -1,8 +1,13 @@
 import 'package:dog_app/core/exports.dart';
 
-class UserProfile extends StatelessWidget {
+class UserProfile extends StatefulWidget {
   const UserProfile({super.key});
 
+  @override
+  State<UserProfile> createState() => _UserProfileState();
+}
+
+class _UserProfileState extends State<UserProfile> {
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
@@ -159,6 +164,9 @@ class UserProfile extends StatelessWidget {
                     leadingIcon: Icons.settings_rounded,
                     leadingBackgroundColor: AppColors.lightGrey,
                     leadingIconColor: AppColors.black,
+                    onTap: () => setState(() {
+                      Navigator.pushNamed(context, AppRoutes.settings);
+                    }),
                   ),
                 ],
               ),

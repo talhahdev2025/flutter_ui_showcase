@@ -1,4 +1,5 @@
 import 'package:dog_app/core/exports.dart';
+import 'package:dog_app/screens/settings.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -21,6 +22,9 @@ class RouteGenerator {
 
       case AppRoutes.userProfile:
         return PageTransition.slide(page: UserProfile());
+
+      case AppRoutes.settings:
+        return PageTransition.slide(page: Settings());
 
       default:
         return PageTransition.slide(page: ErrorPage());

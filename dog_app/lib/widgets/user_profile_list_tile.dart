@@ -4,21 +4,24 @@ class UserProfileListTile extends StatelessWidget {
   const UserProfileListTile({
     super.key,
     required this.headlineText,
-    required this.lableText,
+     this.lableText,
     required this.leadingIcon,
     required this.leadingBackgroundColor,
     required this.leadingIconColor,
+    this.onTap
   });
   final String headlineText;
-  final String lableText;
+  final String? lableText;
   final IconData leadingIcon;
   final Color leadingBackgroundColor;
   final Color leadingIconColor;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: ListTile(
+        onTap: onTap,
         leading: CircleAvatar(
           backgroundColor: leadingBackgroundColor,
           child: Icon(leadingIcon, color: leadingIconColor),
@@ -29,10 +32,10 @@ class UserProfileListTile extends StatelessWidget {
             context,
           ).textTheme.bodyLarge?.copyWith(fontWeight: .bold),
         ),
-        subtitle: Text(
-          lableText,
+        subtitle:(lableText!=null)? Text(
+          lableText!,
           style: Theme.of(context).textTheme.bodyMedium,
-        ),
+        ):null,
         trailing: Icon(Icons.arrow_forward_ios_rounded),
       ),
     );
