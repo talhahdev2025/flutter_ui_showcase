@@ -1,13 +1,13 @@
 import 'package:dog_app/core/exports.dart';
 
-class onTapUpDownAnimated extends StatefulWidget {
-  const onTapUpDownAnimated({super.key, required this.child});
+class OnTapUpDownAnimated extends StatefulWidget {
+  const OnTapUpDownAnimated({super.key, required this.child});
   final Widget child;
   @override
-  State<onTapUpDownAnimated> createState() => _onTapUpDownAnimatedState();
+  State<OnTapUpDownAnimated> createState() => _OnTapUpDownAnimatedState();
 }
 
-class _onTapUpDownAnimatedState extends State<onTapUpDownAnimated> {
+class _OnTapUpDownAnimatedState extends State<OnTapUpDownAnimated> {
   double _scale = 1;
   void _scaleDown(_) {
     setState(() {

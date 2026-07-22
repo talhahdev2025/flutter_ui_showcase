@@ -11,7 +11,7 @@ class ServicesCard extends StatelessWidget {
   String imageUrl;
   @override
   Widget build(BuildContext context) {
-    return onTapUpDownAnimated(
+    return OnTapUpDownAnimated(
       child: Column(
         mainAxisAlignment: .spaceBetween,
         children: [
