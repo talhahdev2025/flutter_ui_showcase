@@ -10,6 +10,12 @@ class Services extends StatefulWidget {
 }
 
 class _ServicesState extends State<Services> {
+late   TextEditingController _servicesTextEditingController;
+  @override
+  void initState() {
+    super.initState();
+    _servicesTextEditingController = TextEditingController();
+  }
   List<Doctor> _sortedDoctors = doctors;
   @override
   Widget build(BuildContext context) {
@@ -36,6 +42,7 @@ class _ServicesState extends State<Services> {
                 //serach box
                 SliverToBoxAdapter(
                   child: CustomTextField(
+                    textEditingController: _servicesTextEditingController,
                     prefixIcon: Icons.search_rounded,
                     sufixIcon: Icons.filter_list_rounded,
                     hint: 'Search for docotrs , clinics',

@@ -10,10 +10,12 @@ class Chat extends StatefulWidget {
 
 class _ChatState extends State<Chat> {
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
+  late TextEditingController _chatTextEditingController;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    _chatTextEditingController = TextEditingController();
   }
 
   @override
@@ -120,6 +122,8 @@ class _ChatState extends State<Chat> {
                             children: [
                               Expanded(
                                 child: CustomTextField(
+                                  textEditingController:
+                                      _chatTextEditingController,
                                   sufixIcon: Icons.keyboard_voice_outlined,
                                   prefixIcon: Icons.add_circle_outline_rounded,
                                   onSubmitted: (value) {
@@ -128,6 +132,7 @@ class _ChatState extends State<Chat> {
                                         'text': value,
                                         'isMe': true,
                                       });
+                                      _chatTextEditingController.clear();
                                     });
                                     _listKey.currentState?.insertItem(
                                       doctors[widget.args.id].chatList.length -

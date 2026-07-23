@@ -9,6 +9,14 @@ class Shop extends StatefulWidget {
 }
 
 class _ShopState extends State<Shop> {
+  late   TextEditingController _shopTextEditingController;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _shopTextEditingController = TextEditingController();
+  }
+
   @override
   bool isFavorite = false;
   Widget build(BuildContext context) {
@@ -31,7 +39,8 @@ class _ShopState extends State<Shop> {
           ),
           //search text Field
           SliverToBoxAdapter(
-            child: const CustomTextField(
+            child:  CustomTextField(
+              textEditingController: _shopTextEditingController,
               prefixIcon: Icons.search_rounded,
               sufixIcon: null,
               onSubmitted: null,

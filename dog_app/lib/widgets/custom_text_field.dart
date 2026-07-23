@@ -1,13 +1,16 @@
+
+
 import 'package:dog_app/core/exports.dart';
 
 class CustomTextField extends StatefulWidget {
-  const CustomTextField({
+  CustomTextField({
     super.key,
     required this._prefixIcon,
     required this._sufixIcon,
     this.onSubmitted,
     this.onChanged,
     this.onClear,
+    required this._textEditingController,
     this.hint = 'search',
   });
   final IconData _prefixIcon;
@@ -16,23 +19,23 @@ class CustomTextField extends StatefulWidget {
   final void Function(String value)? onSubmitted;
   final void Function(String value)? onChanged;
   final VoidCallback? onClear;
+  TextEditingController _textEditingController;
+
   @override
   State<StatefulWidget> createState() => _CustomTextFieldState();
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
-  late TextEditingController _textEditingController;
-
   @override
   void initState() {
     super.initState();
-    _textEditingController = TextEditingController();
-    _textEditingController.addListener(() => setState(() {}));
+    // _textEditingController = TextEditingController();
+    widget._textEditingController.addListener(() => setState(() {}));
   }
 
   @override
   void dispose() {
-    _textEditingController.dispose();
+    widget._textEditingController.dispose();
     super.dispose();
   }
 
@@ -42,7 +45,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       padding: AppInsets.allMd,
       child: TextField(
         keyboardType: .text,
-        controller: _textEditingController,
+        controller: widget._textEditingController,
         decoration: InputDecoration(
           fillColor: AppColors.surfaceLow,
           filled: true,
@@ -56,17 +59,18 @@ class _CustomTextFieldState extends State<CustomTextField> {
           ),
           hint: Text(widget.hint),
           prefixIcon: Icon(widget._prefixIcon),
-          suffixIcon: (_textEditingController.text.isNotEmpty)
+          suffixIcon: (widget._textEditingController.text.isNotEmpty)
               ? IconButton(
                   icon: Icon(Icons.clear_rounded, color: AppColors.onPrimary),
                   onPressed: () {
-                    _textEditingController.clear();
+                    widget._textEditingController.clear();
                     widget.onClear?.call();
                   },
                 )
               : Icon(widget._sufixIcon, color: AppColors.onPrimary),
         ),
         onChanged: widget.onChanged,
+        //TODO (dont do this clearing the controller only for chat screen so that aftter pressing enter text field get blank)
         onSubmitted: widget.onSubmitted,
       ),
     );
