@@ -34,7 +34,10 @@ class UserProfileListTile extends StatelessWidget {
       subtitle: (lableText != null)
           ? Text(lableText!, style: Theme.of(context).textTheme.bodyMedium)
           : null,
-      trailing: Icon(Icons.arrow_forward_ios_rounded),
+      trailing: OnTapAnimated(
+        onTap: onTap,
+        child: Icon(Icons.arrow_forward_ios_rounded),
+      ),
     );
   }
 }

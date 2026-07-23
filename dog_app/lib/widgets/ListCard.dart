@@ -106,7 +106,7 @@ class ListCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                GestureDetector(
+                OnTapAnimated(
                   onTap: () => Navigator.pushNamed(
                     context,
                     AppRoutes.chat,
@@ -117,13 +117,6 @@ class ListCard extends StatelessWidget {
                     // backgroundColor: AppColors.extraLightPink,
                     backgroundColor: color.withValues(alpha: 0.5),
                   ),
-                  // child: AnimatedIconButton(
-                  //   child: CustomIcon(
-                  //     iconData: Icons.mail_outline_rounded,
-                  //     // backgroundColor: AppColors.extraLightPink,
-                  //     backgroundColor: color.withValues(alpha: 0.5),
-                  //   ),
-                  // ),
                 ),
               ],
             ),

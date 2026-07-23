@@ -58,19 +58,21 @@ class HomeCard extends StatelessWidget {
                                 ? CrossAxisAlignment.start
                                 : CrossAxisAlignment.center,
                             children: [
-                              Container(
-                                margin: EdgeInsets.symmetric(horizontal: 4),
-                                padding: EdgeInsets.symmetric(
-                                  vertical: 4,
-                                  horizontal: 16,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: AppColors.white,
-                                  borderRadius: AppRadius.large,
-                                ),
-                                child: Text(
-                                  btnText,
-                                  style: TextStyle(color: Colors.black),
+                              OnTapAnimated(
+                                child: Container(
+                                  margin: EdgeInsets.symmetric(horizontal: 4),
+                                  padding: EdgeInsets.symmetric(
+                                    vertical: 4,
+                                    horizontal: 16,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.white,
+                                    borderRadius: AppRadius.large,
+                                  ),
+                                  child: Text(
+                                    btnText,
+                                    style: TextStyle(color: Colors.black),
+                                  ),
                                 ),
                               ),
                               Text(

@@ -27,23 +27,25 @@ class _UserProfileState extends State<UserProfile> {
       ),
       body: Column(
         children: [
-          Container(
-            padding: AppInsets.allXXs,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: AppColors.primary,
-            ),
+          OnTapAnimated(
             child: Container(
               padding: AppInsets.allXXs,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppColors.background,
+                color: AppColors.primary,
               ),
-              child: CircleAvatar(
-                maxRadius: 60,
-                minRadius: 50,
+              child: Container(
+                padding: AppInsets.allXXs,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.background,
+                ),
+                child: CircleAvatar(
+                  maxRadius: 60,
+                  minRadius: 50,
 
-                foregroundImage: AssetImage(AppImages.homeCardDog),
+                  foregroundImage: AssetImage(AppImages.homeCardDog),
+                ),
               ),
             ),
           ),

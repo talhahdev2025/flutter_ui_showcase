@@ -6,8 +6,9 @@ class DogFoodModel {
   final int discount;
   final int id;
   final String image;
+  bool isFavorite;
 
-  const DogFoodModel({
+  DogFoodModel({
     required this.name,
     required this.subtitle,
     required this.price,
@@ -15,5 +16,6 @@ class DogFoodModel {
     required this.oldPrice,
     required this.discount,
     required this.image,
+    this.isFavorite = false,
   });
 }

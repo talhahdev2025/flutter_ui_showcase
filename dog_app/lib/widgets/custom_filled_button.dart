@@ -1,7 +1,7 @@
 import 'package:dog_app/core/exports.dart';
 
 class CustomFilledButton extends StatelessWidget {
-   CustomFilledButton({
+  CustomFilledButton({
     super.key,
     this._onTap,
     required this.text,

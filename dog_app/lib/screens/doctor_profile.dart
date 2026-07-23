@@ -22,9 +22,11 @@ class DoctorProfile extends StatelessWidget {
                   slivers: [
                     SliverAppBar(
                       actions: [
-                        Icon(Icons.favorite_border_rounded),
+                        OnTapAnimated(
+                          child: Icon(Icons.favorite_border_rounded),
+                        ),
                         SizedBox(width: AppSpacing.md),
-                        Icon(Icons.share_outlined),
+                        OnTapAnimated(child: Icon(Icons.share_outlined)),
                       ],
                       actionsPadding: AppInsets.allMd,
                       toolbarHeight: appBarHeight,
@@ -241,7 +243,11 @@ class DoctorProfile extends StatelessWidget {
                 Navigator.pushNamed(
                   context,
                   AppRoutes.chat,
-                  arguments: ChatArguments(image: args.image, name: args.name,id: args.id),
+                  arguments: ChatArguments(
+                    image: args.image,
+                    name: args.name,
+                    id: args.id,
+                  ),
                 );
               },
               child: Icon(Icons.message_rounded, color: AppColors.primary),

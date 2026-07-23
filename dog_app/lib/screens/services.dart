@@ -27,7 +27,7 @@ class Services extends StatelessWidget {
                 ),
                 //serach box
                 SliverToBoxAdapter(
-                  child:  CustomTextField(
+                  child: CustomTextField(
                     prefixIcon: Icons.search_rounded,
                     sufixIcon: Icons.filter_list_rounded,
                     hint: 'Search for docotrs , clinics',
@@ -102,7 +102,7 @@ class Services extends StatelessWidget {
                                 // long press etc inside custom icon and
                                 // only create property of onTap to handle
                                 // explicitly
-                                GestureDetector(
+                                OnTapAnimated(
                                   onTap: () {
                                     Navigator.pushNamed(
                                       context,
@@ -110,7 +110,7 @@ class Services extends StatelessWidget {
                                       arguments: ChatArguments(
                                         image: doctor.image,
                                         name: doctor.name,
-                                        id: doctor.id
+                                        id: doctor.id,
                                       ),
                                     );
                                   },
@@ -189,6 +189,48 @@ class Services extends StatelessWidget {
                                   ),
                                 ),
                                 Expanded(
+                                  child: OnTapAnimated(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                        context,
+                                        AppRoutes.doctorProfile,
+                                        arguments: DoctorProfileArguments(
+                                          id: doctor.id,
+                                          image: doctor.image,
+                                          category: doctor.category,
+                                          experience: doctor.experience,
+                                          isAvailable: doctor.available,
+                                          name: doctor.name,
+                                          petsHealed: doctor.patientsHealed,
+                                          rating: doctor.rating,
+                                          reviewerName: doctor.reviewerName,
+                                          reviewText: doctor.reviewText,
+                                          reviewTime: doctor.reviewTime,
+                                        ),
+                                      );
+                                    },
+                                    child: Container(
+                                      padding: AppInsets.allXs,
+                                      decoration: BoxDecoration(
+                                        borderRadius: AppRadius.extraLarge,
+                                        boxShadow: AppShadows.card,
+                                        color: AppColors.primary,
+                                      ),
+                                      child: Text(
+                                        textAlign: .center,
+                                        'Book Now',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 16,
+                                          color: AppColors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                //prevoius implementation of above widget
+                                /*
+                                Expanded(
                                   child: CustomFilledButton(
                                     text: 'Book Now',
                                     onTap: () {
@@ -212,6 +254,7 @@ class Services extends StatelessWidget {
                                     },
                                   ),
                                 ),
+                                */
                               ],
                             ),
                           ),

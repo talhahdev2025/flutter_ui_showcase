@@ -9,6 +9,7 @@ class Chat extends StatefulWidget {
 }
 
 class _ChatState extends State<Chat> {
+  final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
   @override
   void initState() {
     // TODO: implement initState
@@ -28,14 +29,18 @@ class _ChatState extends State<Chat> {
               //App Bar
               SliverAppBar(
                 actions: [
-                  CustomIcon(
-                    iconData: Icons.call_outlined,
-                    iconColor: AppColors.onPrimary,
+                  OnTapAnimated(
+                    child: CustomIcon(
+                      iconData: Icons.call_outlined,
+                      iconColor: AppColors.onPrimary,
+                    ),
                   ),
                   SizedBox(width: AppSpacing.md),
-                  CustomIcon(
-                    iconData: Icons.videocam_outlined,
-                    iconColor: AppColors.onPrimary,
+                  OnTapAnimated(
+                    child: CustomIcon(
+                      iconData: Icons.videocam_outlined,
+                      iconColor: AppColors.onPrimary,
+                    ),
                   ),
                 ],
                 actionsPadding: AppInsets.allMd,
@@ -43,14 +48,16 @@ class _ChatState extends State<Chat> {
                 title: Row(
                   spacing: AppSpacing.sm,
                   children: [
-                    Container(
-                      padding: AppInsets.allXXXs,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: AppColors.primary,
-                      ),
-                      child: CircleAvatar(
-                        foregroundImage: NetworkImage(widget.args.image),
+                    OnTapAnimated(
+                      child: Container(
+                        padding: AppInsets.allXXXs,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: AppColors.primary,
+                        ),
+                        child: CircleAvatar(
+                          foregroundImage: NetworkImage(widget.args.image),
+                        ),
                       ),
                     ),
                     Column(
@@ -80,18 +87,27 @@ class _ChatState extends State<Chat> {
                   height: screenHeight * 0.9,
                   child: Stack(
                     children: [
-                      ListView.builder(
-                        itemCount: doctors[widget.args.id].chatList.length,
-                        itemBuilder: (context, index) {
+                      AnimatedList(
+                        key: _listKey,
+                        initialItemCount:
+                            doctors[widget.args.id].chatList.length,
+
+                        itemBuilder: (context, index, animation) {
                           final Doctor doctor = doctors[widget.args.id];
-                          return AnimatedScale(
-                            duration: Duration(seconds: 5),
-                            scale: 1,
-                            child: ChatBubble(
-                              text: doctor.chatList[index]['text'],
-                              alignment: (doctor.chatList[index]['isMe'])
-                                  ? AlignmentGeometry.centerEnd
-                                  : AlignmentGeometry.centerStart,
+                          return SlideTransition(
+                            position: Tween(
+                              begin: Offset(0.2, 0),
+                              end: Offset.zero,
+                            ).animate(animation),
+
+                            child: FadeTransition(
+                              opacity: animation,
+                              child: ChatBubble(
+                                text: doctor.chatList[index]['text'],
+                                alignment: (doctor.chatList[index]['isMe'])
+                                    ? AlignmentGeometry.centerEnd
+                                    : AlignmentGeometry.centerStart,
+                              ),
                             ),
                           );
                         },
@@ -113,6 +129,11 @@ class _ChatState extends State<Chat> {
                                         'isMe': true,
                                       });
                                     });
+                                    _listKey.currentState?.insertItem(
+                                      doctors[widget.args.id].chatList.length -
+                                          1,
+                                      duration: const Duration(seconds: 5),
+                                    );
                                   },
                                 ),
                               ),

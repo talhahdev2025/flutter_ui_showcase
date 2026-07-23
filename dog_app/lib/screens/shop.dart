@@ -1,10 +1,16 @@
 import 'package:dog_app/core/exports.dart';
 import 'package:dog_app/data/dummy_dogs_food.dart';
 
-class Shop extends StatelessWidget {
+class Shop extends StatefulWidget {
   const Shop({super.key});
 
   @override
+  State<Shop> createState() => _ShopState();
+}
+
+class _ShopState extends State<Shop> {
+  @override
+  bool isFavorite = false;
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
@@ -93,13 +99,23 @@ class Shop extends StatelessWidget {
                               Positioned(
                                 right: AppSpacing.xxxs,
                                 top: AppSpacing.xxxs,
-                                child: Container(
-                                  padding: AppInsets.allXXs,
-                                  decoration: BoxDecoration(
-                                    borderRadius: AppRadius.large,
-                                    color: AppColors.background,
+                                child: OnTapAnimated(
+                                  onTap: () => setState(() {
+                                    dogFood.isFavorite = !dogFood.isFavorite;
+                                  }),
+                                  child: Container(
+                                    padding: AppInsets.allXXs,
+                                    decoration: BoxDecoration(
+                                      borderRadius: AppRadius.large,
+                                      color: AppColors.background,
+                                    ),
+                                    child: (dogFood.isFavorite)
+                                        ? Icon(
+                                            Icons.favorite,
+                                            color: Colors.red,
+                                          )
+                                        : Icon(Icons.favorite_border_rounded),
                                   ),
-                                  child: Icon(Icons.favorite_border_rounded),
                                 ),
                               ),
                             ],
@@ -124,10 +140,12 @@ class Shop extends StatelessWidget {
                                     color: AppColors.onPrimary,
                                   ),
                             ),
-                            CustomIcon(
-                              iconData: Icons.add_rounded,
-                              backgroundColor: AppColors.primary,
-                              iconColor: AppColors.background,
+                            OnTapAnimated(
+                              child: CustomIcon(
+                                iconData: Icons.add_rounded,
+                                backgroundColor: AppColors.primary,
+                                iconColor: AppColors.background,
+                              ),
                             ),
                           ],
                         ),
@@ -149,5 +167,19 @@ class Shop extends StatelessWidget {
         child: Icon(Icons.shopping_cart_outlined),
       ),
     );
+  }
+}
+
+class FavoriteIconAnimated extends StatefulWidget {
+  const FavoriteIconAnimated({super.key});
+
+  @override
+  State<FavoriteIconAnimated> createState() => _FavoriteIconAnimatedState();
+}
+
+class _FavoriteIconAnimatedState extends State<FavoriteIconAnimated> {
+  @override
+  Widget build(BuildContext context) {
+    return Icon(Icons.favorite_border_rounded);
   }
 }

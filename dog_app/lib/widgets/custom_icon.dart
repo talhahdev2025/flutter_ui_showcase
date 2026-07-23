@@ -23,7 +23,7 @@ class CustomIcon extends StatelessWidget {
         border: Border.all(color: AppColors.grey),
         color: backgroundColor,
       ),
-      child: Icon(iconData,color: iconColor,),
+      child: Icon(iconData, color: iconColor),
     );
   }
 }

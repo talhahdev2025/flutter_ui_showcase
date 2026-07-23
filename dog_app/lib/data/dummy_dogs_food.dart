@@ -125,6 +125,7 @@ final List<DogFoodModel> dogFoods = [
   DogFoodModel(
     id: 2,
     name: "Purina Pro Plan",
+
     subtitle: "Sensitive Skin, 2.5kg",
     price: 39.99,
     oldPrice: 45.99,
@@ -136,6 +137,7 @@ final List<DogFoodModel> dogFoods = [
     id: 3,
     name: "Hill's Science Diet",
     subtitle: "Adult Chicken, 2kg",
+
     price: 41.50,
     oldPrice: 48.00,
     discount: 14,
