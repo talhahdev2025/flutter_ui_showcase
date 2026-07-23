@@ -5,13 +5,17 @@ class CustomTextField extends StatefulWidget {
     super.key,
     required this._prefixIcon,
     required this._sufixIcon,
-    required this.onSubmitted,
-    this.hint='search',
+    this.onSubmitted,
+    this.onChanged,
+    this.onClear,
+    this.hint = 'search',
   });
   final IconData _prefixIcon;
   final IconData? _sufixIcon;
   final String hint;
   final void Function(String value)? onSubmitted;
+  final void Function(String value)? onChanged;
+  final VoidCallback? onClear;
   @override
   State<StatefulWidget> createState() => _CustomTextFieldState();
 }
@@ -55,11 +59,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
           suffixIcon: (_textEditingController.text.isNotEmpty)
               ? IconButton(
                   icon: Icon(Icons.clear_rounded, color: AppColors.onPrimary),
-                  onPressed: () =>
-                      setState(() => _textEditingController.clear()),
+                  onPressed: () {
+                    _textEditingController.clear();
+                    widget.onClear?.call();
+                  },
                 )
               : Icon(widget._sufixIcon, color: AppColors.onPrimary),
         ),
+        onChanged: widget.onChanged,
         onSubmitted: widget.onSubmitted,
       ),
     );

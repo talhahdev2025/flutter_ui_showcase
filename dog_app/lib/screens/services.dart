@@ -1,8 +1,16 @@
+import 'dart:io';
+
 import 'package:dog_app/core/exports.dart';
 
-class Services extends StatelessWidget {
+class Services extends StatefulWidget {
   const Services({super.key});
 
+  @override
+  State<Services> createState() => _ServicesState();
+}
+
+class _ServicesState extends State<Services> {
+  List<Doctor> _sortedDoctors = doctors;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,10 +39,27 @@ class Services extends StatelessWidget {
                     prefixIcon: Icons.search_rounded,
                     sufixIcon: Icons.filter_list_rounded,
                     hint: 'Search for docotrs , clinics',
-                    onSubmitted: (value) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Searching for $value')),
-                      );
+                    onClear: () => setState(() {
+                      _sortedDoctors = doctors;
+                    }),
+                    onChanged: (value) {
+                      setState(() {
+                        _sortedDoctors = doctors
+                            .where(
+                              (e) =>
+                                  e.name.toLowerCase().contains(
+                                    value.toLowerCase(),
+                                  ) ||
+                                  e.category.toLowerCase().contains(
+                                    value.toLowerCase(),
+                                  ),
+                            )
+                            .toList();
+                      });
+                      // debugPrint(_sortedDoctors.toString(), wrapWidth: 100);
+                      // ScaffoldMessenger.of(context).showSnackBar(
+                      //   SnackBar(content: Text('$_sortedDoctors')),
+                      // );
                     },
                   ),
                 ),
@@ -46,9 +71,9 @@ class Services extends StatelessWidget {
                 ),
                 //ListView
                 SliverList.builder(
-                  itemCount: doctors.length,
+                  itemCount: _sortedDoctors.length,
                   itemBuilder: (context, index) {
-                    final Doctor doctor = doctors[index];
+                    final Doctor doctor = _sortedDoctors[index];
                     return Container(
                       margin: EdgeInsets.all(AppSpacing.md),
                       padding: EdgeInsets.all(AppSpacing.md),
