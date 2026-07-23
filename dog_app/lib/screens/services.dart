@@ -70,191 +70,195 @@ class _ServicesState extends State<Services> {
                   ),
                 ),
                 //ListView
-                SliverList.builder(
-                  itemCount: _sortedDoctors.length,
-                  itemBuilder: (context, index) {
-                    final Doctor doctor = _sortedDoctors[index];
-                    return Container(
-                      margin: EdgeInsets.all(AppSpacing.md),
-                      padding: EdgeInsets.all(AppSpacing.md),
-                      decoration: BoxDecoration(
-                        color: AppColors.background,
-                        borderRadius: AppRadius.extraLarge,
-                        boxShadow: AppShadows.card,
-                      ),
-                      height: 390,
-                      child: Column(
-                        children: [
-                          Container(
-                            width: double.infinity,
-                            height: 170,
+                (_sortedDoctors.isNotEmpty)
+                    ? SliverList.builder(
+                        itemCount: _sortedDoctors.length,
+                        itemBuilder: (context, index) {
+                          final Doctor doctor = _sortedDoctors[index];
+                          return Container(
+                            margin: EdgeInsets.all(AppSpacing.md),
+                            padding: EdgeInsets.all(AppSpacing.md),
                             decoration: BoxDecoration(
+                              color: AppColors.background,
                               borderRadius: AppRadius.extraLarge,
                               boxShadow: AppShadows.card,
-                              image: DecorationImage(
-                                image: NetworkImage(doctor.image),
-                                fit: .cover,
-                              ),
                             ),
-                          ),
-                          //name and mail icon
-                          Padding(
-                            padding: EdgeInsetsGeometry.symmetric(
-                              vertical: AppSpacing.md,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: .spaceBetween,
+                            height: 390,
+                            child: Column(
                               children: [
-                                Column(
-                                  crossAxisAlignment: .start,
-                                  children: [
-                                    Text(
-                                      doctor.name,
-                                      style: Theme.of(
-                                        context,
-                                      ).textTheme.headlineMedium,
+                                Container(
+                                  width: double.infinity,
+                                  height: 170,
+                                  decoration: BoxDecoration(
+                                    borderRadius: AppRadius.extraLarge,
+                                    boxShadow: AppShadows.card,
+                                    image: DecorationImage(
+                                      image: NetworkImage(doctor.image),
+                                      fit: .cover,
                                     ),
-                                    Text(
-                                      '${doctor.category} • ${doctor.experience}',
-                                      style: Theme.of(
-                                        context,
-                                      ).textTheme.bodyLarge,
+                                  ),
+                                ),
+                                //name and mail icon
+                                Padding(
+                                  padding: EdgeInsetsGeometry.symmetric(
+                                    vertical: AppSpacing.md,
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: .spaceBetween,
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment: .start,
+                                        children: [
+                                          Text(
+                                            doctor.name,
+                                            style: Theme.of(
+                                              context,
+                                            ).textTheme.headlineMedium,
+                                          ),
+                                          Text(
+                                            '${doctor.category} • ${doctor.experience}',
+                                            style: Theme.of(
+                                              context,
+                                            ).textTheme.bodyLarge,
+                                          ),
+                                        ],
+                                      ),
+                                      // TODO:ADD gesture logic inside the
+                                      //custom icon and handles all the gesture
+                                      // long press etc inside custom icon and
+                                      // only create property of onTap to handle
+                                      // explicitly
+                                      OnTapAnimated(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                            context,
+                                            AppRoutes.chat,
+                                            arguments: ChatArguments(
+                                              image: doctor.image,
+                                              name: doctor.name,
+                                              id: doctor.id,
+                                            ),
+                                          );
+                                        },
+                                        child: CustomIcon(
+                                          iconData: Icons.mail_outline_rounded,
+                                          iconColor: AppColors.onSecondary,
+                                          backgroundColor: AppColors.secondary
+                                              .withValues(alpha: 0.6),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                //reivews and distance
+                                Row(
+                                  children: [
+                                    Wrap(
+                                      alignment: .center,
+                                      children: [
+                                        Icon(
+                                          Icons.star_rounded,
+                                          color: AppColors.orange,
+                                        ),
+                                        Text(
+                                          ' ${doctor.rating}',
+                                          style: Theme.of(
+                                            context,
+                                          ).textTheme.titleMedium,
+                                        ),
+                                        Text(
+                                          ' (${doctor.reviews})',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleMedium
+                                              ?.copyWith(fontWeight: .w100),
+                                        ),
+                                        SizedBox(width: AppSpacing.md),
+                                        Row(
+                                          children: [
+                                            Icon(Icons.location_on_outlined),
+                                            Text(
+                                              ' ${doctor.distance} km',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .titleMedium
+                                                  ?.copyWith(fontWeight: .w100),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
-                                // TODO:ADD gesture logic inside the
-                                //custom icon and handles all the gesture
-                                // long press etc inside custom icon and
-                                // only create property of onTap to handle
-                                // explicitly
-                                OnTapAnimated(
-                                  onTap: () {
-                                    Navigator.pushNamed(
-                                      context,
-                                      AppRoutes.chat,
-                                      arguments: ChatArguments(
-                                        image: doctor.image,
-                                        name: doctor.name,
-                                        id: doctor.id,
-                                      ),
-                                    );
-                                  },
-                                  child: CustomIcon(
-                                    iconData: Icons.mail_outline_rounded,
-                                    iconColor: AppColors.onSecondary,
-                                    backgroundColor: AppColors.secondary
-                                        .withValues(alpha: 0.6),
+                                // book appointment
+                                Padding(
+                                  padding: EdgeInsetsGeometry.only(
+                                    top: AppSpacing.md,
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          //reivews and distance
-                          Row(
-                            children: [
-                              Wrap(
-                                alignment: .center,
-                                children: [
-                                  Icon(
-                                    Icons.star_rounded,
-                                    color: AppColors.orange,
-                                  ),
-                                  Text(
-                                    ' ${doctor.rating}',
-                                    style: Theme.of(
-                                      context,
-                                    ).textTheme.titleMedium,
-                                  ),
-                                  Text(
-                                    ' (${doctor.reviews})',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleMedium
-                                        ?.copyWith(fontWeight: .w100),
-                                  ),
-                                  SizedBox(width: AppSpacing.md),
-                                  Row(
-                                    children: [
-                                      Icon(Icons.location_on_outlined),
-                                      Text(
-                                        ' ${doctor.distance} km',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .titleMedium
-                                            ?.copyWith(fontWeight: .w100),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          // book appointment
-                          Padding(
-                            padding: EdgeInsetsGeometry.only(
-                              top: AppSpacing.md,
-                            ),
-                            child: Row(
-                              children: [
-                                Expanded(
                                   child: Row(
-                                    crossAxisAlignment: .end,
                                     children: [
-                                      Text(
-                                        '\$${doctor.fee}',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headlineMedium
-                                            ?.copyWith(
-                                              color: AppColors.onPrimary,
+                                      Expanded(
+                                        child: Row(
+                                          crossAxisAlignment: .end,
+                                          children: [
+                                            Text(
+                                              '\$${doctor.fee}',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .headlineMedium
+                                                  ?.copyWith(
+                                                    color: AppColors.onPrimary,
+                                                  ),
                                             ),
-                                      ),
-                                      Text(' / visit'),
-                                    ],
-                                  ),
-                                ),
-                                Expanded(
-                                  child: OnTapAnimated(
-                                    onTap: () {
-                                      Navigator.pushNamed(
-                                        context,
-                                        AppRoutes.doctorProfile,
-                                        arguments: DoctorProfileArguments(
-                                          id: doctor.id,
-                                          image: doctor.image,
-                                          category: doctor.category,
-                                          experience: doctor.experience,
-                                          isAvailable: doctor.available,
-                                          name: doctor.name,
-                                          petsHealed: doctor.patientsHealed,
-                                          rating: doctor.rating,
-                                          reviewerName: doctor.reviewerName,
-                                          reviewText: doctor.reviewText,
-                                          reviewTime: doctor.reviewTime,
-                                        ),
-                                      );
-                                    },
-                                    child: Container(
-                                      padding: AppInsets.allXs,
-                                      decoration: BoxDecoration(
-                                        borderRadius: AppRadius.extraLarge,
-                                        boxShadow: AppShadows.card,
-                                        color: AppColors.primary,
-                                      ),
-                                      child: Text(
-                                        textAlign: .center,
-                                        'Book Now',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 16,
-                                          color: AppColors.white,
+                                            Text(' / visit'),
+                                          ],
                                         ),
                                       ),
-                                    ),
-                                  ),
-                                ),
-                                //prevoius implementation of above widget
-                                /*
+                                      Expanded(
+                                        child: OnTapAnimated(
+                                          onTap: () {
+                                            Navigator.pushNamed(
+                                              context,
+                                              AppRoutes.doctorProfile,
+                                              arguments: DoctorProfileArguments(
+                                                id: doctor.id,
+                                                image: doctor.image,
+                                                category: doctor.category,
+                                                experience: doctor.experience,
+                                                isAvailable: doctor.available,
+                                                name: doctor.name,
+                                                petsHealed:
+                                                    doctor.patientsHealed,
+                                                rating: doctor.rating,
+                                                reviewerName:
+                                                    doctor.reviewerName,
+                                                reviewText: doctor.reviewText,
+                                                reviewTime: doctor.reviewTime,
+                                              ),
+                                            );
+                                          },
+                                          child: Container(
+                                            padding: AppInsets.allXs,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  AppRadius.extraLarge,
+                                              boxShadow: AppShadows.card,
+                                              color: AppColors.primary,
+                                            ),
+                                            child: Text(
+                                              textAlign: .center,
+                                              'Book Now',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 16,
+                                                color: AppColors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      //prevoius implementation of above widget
+                                      /*
                                 Expanded(
                                   child: CustomFilledButton(
                                     text: 'Book Now',
@@ -280,14 +284,44 @@ class _ServicesState extends State<Services> {
                                   ),
                                 ),
                                 */
+                                    ],
+                                  ),
+                                ),
                               ],
                             ),
+                          );
+                        },
+                      )
+                    : SliverToBoxAdapter(
+                        child: Container(
+                          // color: AppColors.primary,
+                          width: MediaQuery.of(context).size.width * 0.7,
+                          margin: AppInsets.allMd,
+                          padding: AppInsets.allLg,
+                          child: Column(
+                            crossAxisAlignment: .center,
+                            children: [
+                              Icon(
+                                Icons.pets_outlined,
+                                size: 60,
+                                color: AppColors.primary,
+                              ),
+                              Text(
+                                textAlign: .center,
+                                'No Doctors Found',
+                                style: Theme.of(
+                                  context,
+                                ).textTheme.headlineLarge,
+                              ),
+                              Text(
+                                textAlign: .center,
+
+                                'We couldn\'t find any doctors matching your search or filters. Try adjusting your search to see more results.',
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
-                    );
-                  },
-                ),
               ],
             ),
           );
